@@ -18,6 +18,7 @@ window-rule {
 window-rule {
     match app-id="imv"
     match app-id="clipse-gui"
+    match title="satty"
     match app-id="fcitx" title="Fcitx5 Input Window" 
     match app-id="waypaper"
     match title="重命名"

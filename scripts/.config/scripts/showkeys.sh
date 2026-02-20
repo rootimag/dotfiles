@@ -8,7 +8,7 @@ CMDS_FILE="/run/user/$UID/niri_cmds"
 # 确保清理旧数据
 rm -f "$MENU_FILE" "$CMDS_FILE"
 
-# 2. 全局递归扫描（保持你原有的 AWK 提取逻辑不变）
+# 2. 全局递归扫描
 grep -r "hotkey-overlay-title=" "$NIRI_DIR" --include="*.kdl" | grep -v "^[^:]*:[[:space:]]*//" | awk -F'hotkey-overlay-title=' '
     {
         line = $0;
@@ -31,7 +31,7 @@ grep -r "hotkey-overlay-title=" "$NIRI_DIR" --include="*.kdl" | grep -v "^[^:]*:
 
                 if (key != "" && title != "") {
                     # 这里的格式可以根据 Rofi 的宽度自行调整
-                    printf "%-18s │ %s\n", key, title > "'"$MENU_FILE"'"
+                    printf "%-18s\t%s\n", key, title > "'"$MENU_FILE"'"
                     printf "%s\n", action > "'"$CMDS_FILE"'"
                 }
             }

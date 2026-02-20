@@ -6,10 +6,11 @@
 
 ## 文件目录
 
-.
-├── [matugen](#matugen)/             # matugen 色彩动态更新             
-├── [scripts](#scripts)/             # 共用脚本，包括 matugen更新和截图 
-└── [niri](#niri)/                   # niri 配置
+| 配置文件 | 解释 |
+| [matugen](#matugen) | matugen 色彩动态更新 |
+| [scripts](#scripts) | 共用脚本，包括 matugen更新和截图 |
+| [niri](#niri) | niri 配置 |
+| [rofi](#rofi) | rofi 配置 |
 
 [一键安装脚本](#安装脚本)
 
@@ -39,8 +40,6 @@
 | polkit-gnome | 认证代理 |
 | impala iwd | 网络链接 |
 
----
-
 依赖配置文件: 
 | 依赖 | 描述 |
 | --- | --- |
@@ -49,6 +48,15 @@
 | ~/.config/scripts/screenshot.sh | 截屏脚本 |
 | ~/.config/scripts/niri\_auto\_blur\_bg.sh | 自动模糊 |
 | ~/.config/matugen/config.toml | 生成配色方案 |
+
+---
+
+### rofi
+
+依赖安装：
+| 软件包(必须安装) | 描述 |
+| --- | --- |
+| rofi | 应用启动器 |
 
 ---
 
@@ -108,17 +116,17 @@
 
 脚本识别以下三种前缀：
 
-1. `pkg`: (包管理器)
+1. `pkg:` (包管理器)
 
 自动检测系统中的 yay 或 paru
 
-2. `stow`: (链接器)
+2. `stow:` (链接器)
 
 - `stow: ~` (链接到家目录)
 
 - `stow: /etc/configs` (链接到指定路径)
 
-3. `cmd`: (命令执行)
+3. `cmd:` (命令执行)
 
 暂不支持执行多行命令，可通过 `&&` 执行多个命令
 

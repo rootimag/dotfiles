@@ -1,2 +1,2 @@
-pkg: imagemagick jq satty swayidle rofi hyprlock matugen
+pkg: niri imagemagick jq satty swayidle rofi hyprlock matugen
 stow: ~

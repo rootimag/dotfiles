@@ -1,0 +1,9 @@
+/* matugen 配色文件 */
+
+* {
+    bg:          {{colors.surface_container_low.default.hex}}D9; 
+    bg-selected: {{colors.surface_container_high.default.hex}}F2; 
+    fg:          {{colors.on_surface.default.hex}};
+    fg-selected: {{colors.primary.default.hex}};
+    accent:      {{colors.primary_fixed.default.hex}}CC;
+}

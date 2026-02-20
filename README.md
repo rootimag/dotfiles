@@ -19,6 +19,7 @@
 | 类别 | 工具 | 
 | --- | --- |
 | Wayland 合成器 | [niri](https://github.com/niri-wm/niri) |
+| rofi 应用启动器 | [rofi](https://github.com/davatorium/rofi) |
 
 ---
 
@@ -32,8 +33,10 @@
 
 ```
 .
-├── scripts/                # 共用脚本，包括 matugen更新和截图 
-└── niri/                   # niri 配置
+├── scripts/                # 共用脚本，包括 matugen更新和截图
+├── matugen/                # matugen 色彩动态更新 
+├── niri/                   # niri 配置
+└── rofi/                   # rofi 配置
 ```
 
 ---

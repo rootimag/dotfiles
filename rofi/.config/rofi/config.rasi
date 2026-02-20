@@ -1,0 +1,90 @@
+configuration {
+    modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               " ";
+    drun-display-format:        "{name}";
+    font:                       "JetBrainsMono Nerd Font 13";
+
+    /* 鼠标交互 */
+    hover-select:               true;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+}
+
+/* 引入 Matugen 生成的颜色 */
+@import "~/.config/rofi/colors.rasi"
+
+window {
+    width:                       700px;
+    background-color:            @bg;
+    border:                      2px solid;
+    border-color:                @accent;
+    border-radius:               14px;
+}
+
+mainbox {
+    padding:                     25px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    padding:                     12px;
+    margin:                      0 0 15px 0;
+    border-radius:               10px;
+    background-color:            @bg-selected;
+    text-color:                  @fg;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color:            transparent;
+    text-color:                  @accent;
+}
+
+entry {
+    placeholder: "";
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+listview {
+    columns:                     1;
+    lines:                       8;
+    fixed-height:                true;
+    spacing:                     5px;
+    background-color:            transparent;
+    border:                      0px;
+}
+
+element {
+    padding:                     10px 15px;
+    border-radius:               10px;
+    background-color:            transparent; 
+    text-color:                  @fg;
+    cursor:                      pointer;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @fg;
+}
+
+element selected.normal {
+    background-color:            @bg-selected; 
+    text-color:                  @fg-selected;
+    border:                      1px solid;
+    border-color:                @accent;
+}
+
+element-icon {
+    size:                        28px;
+    background-color:            transparent;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+}
