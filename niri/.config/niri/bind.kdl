@@ -1,0 +1,212 @@
+// 快捷键全局设置
+
+binds {
+    // 显示重要快捷键列表。
+    Mod+Shift+Slash hotkey-overlay-title="显示快捷键列表" { spawn "~/.config/scripts/showkeys.sh"; }
+
+    // 应用程序
+    Mod+B hotkey-overlay-title="浏览器" { spawn "firefox"; }
+    Mod+E hotkey-overlay-title="文件资源管理器" { spawn  "thunar"; }
+    Mod+Return hotkey-overlay-title="终端" { spawn "kitty"; }
+    Mod+D hotkey-overlay-title="应用启动器" { spawn-sh "rofi -show drun"; }
+    Mod+P hotkey-overlay-title="选取屏幕颜色" { spawn-sh "hyprpicker"; } 
+    
+    Mod+Alt+L hotkey-overlay-title="锁屏" { spawn "hyprlock"; }
+    Mod+ALT+V hotkey-overlay-title="剪贴板" { spawn "kitty" "--class" "clipse" "-o" "background_opacity=0.9" "-e" "clipse"; }
+    Mod+Alt+W hotkey-overlay-title="切换壁纸" { spawn "waypaper"; }
+
+    // 脚本相关
+    Mod+F1 hotkey-overlay-title="开关 Fcitx5 输入法" { spawn-sh "pkill fcitx5 || fcitx5"; }
+    Mod+F2 hotkey-overlay-title="开关任务栏" { spawn-sh "pkill -x waybar || waybar "; }
+    Mod+F3 hotkey-overlay-title="更新 matugen 配色" { spawn "~/.config/scripts/matugen-update.sh"; }
+    Mod+F4 hotkey-overlay-title="随机切换壁纸" { spawn "waypaper" "--random"; }
+    Mod+F12 hotkey-overlay-title="截图工具" { spawn "~/.config/scripts/screenshot.sh"; }
+
+    // 截图分步骤
+    Print  hotkey-overlay-title="选取区域截图"  { screenshot; }
+    Ctrl+Print  hotkey-overlay-title="截取聚焦窗口" { screenshot-window; }
+    Shift+Print  hotkey-overlay-title="截取显示器" { screenshot-screen; }
+    Mod+Shift+S  hotkey-overlay-title="截图编辑" { spawn-sh "wl-paste | satty -f -"; }
+
+    // PipeWire 映射
+    Alt+F1 { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; };
+    Alt+F2 { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; };
+    Alt+F3 { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" "-l" "1.0"; };
+    Alt+F4 { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; };
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // playerctl 映射
+    Alt+F5 { spawn "playerctl" "play-pause"; };
+    Alt+F6 { spawn "playerctl" "stop"; };
+    Alt+F7 { spawn "playerctl" "previous"; };
+    Alt+F8 { spawn "playerctl" "next"; };
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+
+    // brightnessctl 映射
+    Alt+F9 { spawn "brightnessctl" "--class=backlight" "set" "10%-" "min-value=1" "-n" "200"; }
+    Alt+F10 { spawn "brightnessctl" "--class=backlight" "set" "10%+"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    // 打开/关闭概览：工作区和窗口的缩小视图。
+    Mod+O hotkey-overlay-title="打开概览" repeat=false { toggle-overview; }
+
+    Mod+Q hotkey-overlay-title="关闭聚焦窗口" repeat=false { close-window; }
+
+    // 切换聚焦
+    Mod+Left hotkey-overlay-title="聚焦窗口到左侧" { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right hotkey-overlay-title="聚焦窗口到右侧" { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    // 移动 colume（列）
+    Mod+Ctrl+Left hotkey-overlay-title="移动窗口右侧" { move-column-left; }
+    Mod+Ctrl+Down { move-window-down; }
+    Mod+Ctrl+Up   { move-window-up; }
+    Mod+Ctrl+Right hotkey-overlay-title="移动窗口到右侧" { move-column-right; }
+    Mod+Ctrl+H     { move-column-left; }
+    Mod+Ctrl+J     { move-window-down; }
+    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+L     { move-column-right; }
+
+    // 切换列首尾聚焦
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+
+    // 切换显示器聚焦
+    Mod+Shift+Left  { focus-monitor-left; }
+    Mod+Shift+Down  { focus-monitor-down; }
+    Mod+Shift+Up    { focus-monitor-up; }
+    Mod+Shift+Right { focus-monitor-right; }
+    Mod+Shift+H     { focus-monitor-left; }
+    Mod+Shift+J     { focus-monitor-down; }
+    Mod+Shift+K     { focus-monitor-up; }
+    Mod+Shift+L     { focus-monitor-right; }
+
+    // 移动列到其他显示器
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+    // 切换工作区
+    Mod+Page_Down hotkey-overlay-title="移动到下一页" { focus-workspace-down; }
+    Mod+Page_Up   hotkey-overlay-title="移动到上一页" { focus-workspace-up; }
+    Mod+U              { focus-workspace-down; }
+    Mod+I              { focus-workspace-up; }
+    // 移动列到工作区
+    Mod+Ctrl+Page_Down  hotkey-overlay-title="移动到下一页" { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up    hotkey-overlay-title="移动到上一页"  { move-column-to-workspace-up; }
+    Mod+Ctrl+U         { move-column-to-workspace-down; }
+    Mod+Ctrl+I         { move-column-to-workspace-up; }
+
+    // 移动工作区
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+    Mod+Shift+U         { move-workspace-down; }
+    Mod+Shift+I         { move-workspace-up; }
+
+    // 鼠标滚轮切换工作区
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    // 鼠标滚轮切换列
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    // 水平滚动
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+    // 窗口移入移出列
+    Mod+BracketLeft hotkey-overlay-title="移动或移出左侧" { consume-or-expel-window-left; }
+    Mod+BracketRight hotkey-overlay-title="移动或移出右侧" { consume-or-expel-window-right; }
+
+    // 从右侧吸收一个窗口到聚焦列的底部。
+    Mod+Comma  { consume-window-into-column; }
+    // 将聚焦列底部的窗口移到右侧。
+    Mod+Period { expel-window-from-column; }
+
+    // 列宽和窗口高度调整
+    Mod+R hotkey-overlay-title="切换预设列宽度" { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    
+    // 最大化操作
+    Mod+F hotkey-overlay-title="最大化列" { maximize-column; }
+    // super + shift + f
+    Mod+Shift+F { fullscreen-window; }
+
+    // 聚焦列扩展
+    Mod+Ctrl+F { expand-column-to-available-width; }
+
+    // 居中操作
+    Mod+C { center-column; }
+
+    // 可见列居中
+    Mod+Ctrl+C { center-visible-columns; }
+
+    // 列宽微调
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    // 窗口高度微调
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // 布局切换
+    Mod+V hotkey-overlay-title="在浮动布局和平铺布局之间移动"          { toggle-window-floating; }
+    Mod+Shift+V hotkey-overlay-title="在浮动布局和平铺布局之间切换焦点" { switch-focus-between-floating-and-tiling; }
+
+    // 窗口切换垂直标签页
+    Mod+W { toggle-column-tabbed-display; }
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // 退出操作
+    Mod+Shift+E hotkey-overlay-title="退出 Niri" { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    // 关闭显示器电源
+    Mod+Shift+P { power-off-monitors; }
+}

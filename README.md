@@ -40,7 +40,7 @@
 
 ## 📸 预览
 
-![Desktop Preview](./assets/Arch_Preview.png)
+![Desktop Preview](./.assets/Arch_Preview.png)
 
 ---
 

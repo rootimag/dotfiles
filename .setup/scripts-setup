@@ -1,0 +1,2 @@
+pkg: imagemagick jq satty swayidle rofi hyprlock matugen
+stow: ~

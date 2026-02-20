@@ -1,0 +1,9 @@
+// 环境变量
+
+environment {
+    LANG "zh_CN.UTF-8"
+    LC_ALL "zh_CN.UTF-8"
+    GTK_IM_MODULE "fcitx"	        // GTK 输入法模块
+    QT_IM_MODULE "fcitx"	        // Qt 输入法模块
+    XMODIFIERS "@im=fcitx"	        // X 输入法模块
+}

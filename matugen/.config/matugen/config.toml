@@ -1,0 +1,9 @@
+[config]
+default_type = "scheme-tonal-spot"
+
+[config.wallpaper]
+command = "swww"
+
+[templates.niri]
+input_path = 'templates/niri-colors.kdl'
+output_path = '~/.config/niri/colors.kdl'

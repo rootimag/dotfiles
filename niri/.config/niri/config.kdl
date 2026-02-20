@@ -1,0 +1,27 @@
+// Niri 窗口管理器配置文件
+
+// 配置文件结构
+// niri/
+// ├── config.kdl          # 主配置文件（当前文件）
+// ├── environment.kdl     # 环境变量配置
+// ├── bind.kdl            # 快捷键绑定
+// ├── window-rule.kdl     # 窗口规则
+// ├── layout.kdl          # 布局配置
+// ├── input.kdl           # 输入设备配置
+// ├── output.kdl          # 输出设备配置
+// ├── animations.kdl      # 动画配置
+// ├── colors.kdl          # 颜色配置
+// ├── startup.kdl         # 启动配置
+// └── others.kdl          # 其他配置
+
+// 导入其他配置文件
+include "environment.kdl"   // 环境变量配置
+include "startup.kdl"       // 启动配置
+include "bind.kdl"          // 快捷键绑定
+include "rule.kdl"          // 窗口规则
+include "layout.kdl"        // 布局配置
+include "input.kdl"         // 输入设备配置
+include "output.kdl"        // 输出设备配置
+include "animations.kdl"    // 动画配置
+include "colors.kdl"        // 颜色配置
+include "others.kdl"        // 其他配置

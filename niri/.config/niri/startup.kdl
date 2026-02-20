@@ -1,0 +1,10 @@
+// 自启动设置
+
+spawn-at-startup "swww-daemon"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "swaync"
+spawn-at-startup "fcitx5"
+spawn-at-startup "waybar"
+spawn-at-startup "clipse" "-listen"
+spawn-at-startup "~/.config/scripts/niri_auto_blur_bg.sh"
+spawn-at-startup "~/.config/niri/scripts/swayidle.sh"

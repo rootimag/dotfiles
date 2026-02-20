@@ -1,0 +1,10 @@
+// 输入全局设置
+
+input {
+    mouse {
+        accel-speed 0.5
+        accel-profile "flat"
+    }
+    // 自动聚焦
+    focus-follows-mouse
+}
