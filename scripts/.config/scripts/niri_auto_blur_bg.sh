@@ -4,7 +4,7 @@
 CACHE_DIR="$HOME/.cache/blur-wallpapers"
 LAST_WALL_FILE="/tmp/niri_last_wall_path"
 BLUR_ARG="0x10"
-DEBUG=0;
+DEBUG=1;
 mkdir -p "$CACHE_DIR"
 
 # 颜色日志输出函数
@@ -17,7 +17,6 @@ get_current_wall() {
     local raw=$(swww query 2>/dev/null)
     if [[ "$raw" =~ image:[[:space:]]*([^[:space:]].*) ]]; then
         local path="${BASH_REMATCH[1]}"
-        # 如果当前 swww 是模糊图，则尝试读取记录的原图路径
         if [[ "$path" == *"blur-"* ]]; then
             if [[ -f "$LAST_WALL_FILE" ]]; then
                 cat "$LAST_WALL_FILE"

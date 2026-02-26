@@ -17,8 +17,8 @@
 // 导入其他配置文件
 include "environment.kdl"   // 环境变量配置
 include "startup.kdl"       // 启动配置
-include "bind.kdl"          // 快捷键绑定
-include "rule.kdl"          // 窗口规则
+include "binds.kdl"          // 快捷键绑定
+include "rules.kdl"          // 窗口规则
 include "layout.kdl"        // 布局配置
 include "input.kdl"         // 输入设备配置
 include "output.kdl"        // 输出设备配置

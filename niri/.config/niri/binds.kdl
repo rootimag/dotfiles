@@ -8,7 +8,6 @@ binds {
     Mod+B hotkey-overlay-title="浏览器" { spawn "firefox"; }
     Mod+E hotkey-overlay-title="文件资源管理器" { spawn  "thunar"; }
     Mod+D hotkey-overlay-title="应用启动器" { spawn-sh "rofi -show drun"; }
-    Mod+P hotkey-overlay-title="选取屏幕颜色" { spawn-sh "hyprpicker"; }
     Mod+Return hotkey-overlay-title="终端" { spawn "kitty"; }
     
     Mod+Alt+L hotkey-overlay-title="锁屏" { spawn "hyprlock"; }
@@ -17,9 +16,10 @@ binds {
 
     // 脚本相关
     Mod+F1 hotkey-overlay-title="开关 Fcitx5 输入法" { spawn-sh "pkill fcitx5 || fcitx5"; }
-    Mod+F2 hotkey-overlay-title="开关任务栏" { spawn-sh "pkill -x waybar || waybar "; }
+    Mod+F2 hotkey-overlay-title="开关任务栏" { spawn-sh "pkill -x ironbar || ironbar"; }
     Mod+F3 hotkey-overlay-title="更新 matugen 配色" { spawn "~/.config/scripts/matugen-update.sh"; }
     Mod+F4 hotkey-overlay-title="随机切换壁纸" { spawn "waypaper" "--random"; }
+    Mod+F11 hotkey-overlay-title="代理工具" { spawn "sh" "-c" "pkill pkexec; pkexec sing-box run -c /home/rootimag/.config/sing-box/config.json; notify-send 代理已开启"; }
     Mod+F12 hotkey-overlay-title="截图工具" { spawn "~/.config/scripts/screenshot.sh"; }
 
     // 截图分步骤

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # 1. 获取当前壁纸路径
-WALLPAPER_PATH=$(swww query | awk -F 'image: ' '{print $2}' | head -n 1)
+WALLPAPER_PATH="$1"
 
 # 2. 运行 Matugen 生成颜色变量
 matugen image "$WALLPAPER_PATH"

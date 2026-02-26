@@ -1,8 +1,8 @@
-// matugen 颜色配置
+// matugen 配色文件
 
 layout{
     focus-ring{
-        active-gradient from="#80d4d7cc" to="#b4c7e9cc" angle=135
+        active-gradient from="#a9c7ffcc" to="#dcbce1cc" angle=135
         urgent-color "#ffb4ab"
 
         }
@@ -10,7 +10,7 @@ layout{
 
 recent-windows {    
     highlight {
-        active-color "#343a3a"
+        active-color "#37393e"
         urgent-color "#ffb4ab"
     }
 }

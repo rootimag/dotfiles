@@ -8,80 +8,13 @@
 
 | 配置文件 | 解释 |
 | --- | --- |
-| 📁[matugen/](#matugen) | matugen 色彩动态更新 |
-| 📁[scripts/](#scripts) | 共用脚本，包括 matugen更新和截图 |
-| 📁[niri/](#niri) | niri 配置 |
-| 📁[rofi/](#rofi) | rofi 配置 |
+| 📁[matugen/]| matugen 色彩动态更新 |
+| 📁[scripts/] | 共用脚本，包括 matugen更新和截图 |
+| 📁[niri/] | niri 配置 |
+| 📁[rofi/] | rofi 配置 |
+| 📁[ironbar/] | ironbar 配置 |
 
 [一键安装脚本](#安装脚本)
-
----
-
-### niri
-
-依赖安装：
-| 软件包(建议安装) | 描述 |
-| --- | --- |
-| niri | Wayland 合成器 |
-| rofi | 应用启动器 |
-| thunar | 文件管理器 |
-| kitty | 终端模拟器 |
-| waybar | 系统状态栏 |
-| waypaper swww swaybg | 壁纸切换 |
-| satty | 编辑截图 |
-| wireplumber | 音量控制 |
-| playerctl | 媒体控制 |
-| brightnessctl | 亮度控制 |
-| firefox | 浏览器 |
-| hyprlock | 锁屏 |
-| clipse wl-clipboard | 剪贴板 | 
-| hyprpicker | 提取颜色 | 
-| fcitx5-im fcitx5-rime | 输入法 |
-| matugen | 配色生成 |
-| polkit-gnome | 认证代理 |
-| impala iwd | 网络链接 |
-
-依赖配置文件: 
-| 依赖 | 描述 |
-| --- | --- |
-| ~/.config/scripts/matugen-update.sh | 更新 matugen 配置 |
-| ~/.config/scripts/swayidle.sh | 自动熄屏 | 
-| ~/.config/scripts/screenshot.sh | 截屏脚本 |
-| ~/.config/scripts/niri\_auto\_blur\_bg.sh | 自动模糊 |
-| ~/.config/matugen/config.toml | 生成配色方案 |
-
----
-
-### rofi
-
-依赖安装：
-| 软件包(必须安装) | 描述 |
-| --- | --- |
-| rofi | 应用启动器 |
-
----
-
-### scripts
-
-| 软件包(必须安装) | 描述 |
-| --- | --- |
-| imagemagick | 处理图片 |
-| jq | 读取 json |
-| satty | 编辑截图 |
-| swayidle | 自动熄屏 |
-| matugen | 配色生成 |
-| rofi | 应用启动器 |
-| hyprlock | 锁屏 |
-| swww swaybg | 壁纸模糊 |
-
----
-
-### matugen 
-
-| 软件包(必须安装) | 描述 |
-| --- | --- |
-| matugen | 配色生成 |
-| niri | Wayland 合成器 |
 
 ---
 

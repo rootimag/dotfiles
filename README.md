@@ -20,6 +20,7 @@
 | --- | --- |
 | Wayland 合成器 | [niri](https://github.com/niri-wm/niri) |
 | rofi 应用启动器 | [rofi](https://github.com/davatorium/rofi) |
+| ironbar 状态栏 | [ironbar](https://github.com/JakeStanger/ironbar) |
 
 ---
 
@@ -36,7 +37,8 @@
 ├── scripts/                # 共用脚本，包括 matugen更新和截图
 ├── matugen/                # matugen 色彩动态更新 
 ├── niri/                   # niri 配置
-└── rofi/                   # rofi 配置
+├── rofi/                   # rofi 配置
+└── ironbar/                # ironbar 配置
 ```
 
 ---

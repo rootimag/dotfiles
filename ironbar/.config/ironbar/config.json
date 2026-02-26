@@ -1,0 +1,39 @@
+{
+    "position": "top",
+    "start": [
+        {
+            "type": "menu",
+            "class": "launch",
+            "label": "archlinux",
+            "on_click_right": "waypaper",
+            "on_click_middle": "rofi -show drun"
+        }
+    ],
+    "center": [
+        {
+            "type": "workspaces"
+        }
+    ],
+    "end": [
+        {
+            "type": "tray"
+        },
+        {
+            "type": "music",
+            "player_type": "mpris",
+            "format": "{title} - {artist}",
+            "class": "music-module",
+            "show_album_art": true,
+            "album_art_size": 32,
+            "truncate": {
+                "mode": "end",
+                "max_length": 20
+            }
+        },
+        {
+            "type": "clock",
+            "format": " %H:%M ",
+            "class": "clock-module"
+        }
+    ]
+}

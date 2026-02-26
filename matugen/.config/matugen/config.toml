@@ -9,5 +9,15 @@ input_path = 'templates/niri-colors.kdl'
 output_path = '~/.config/niri/colors.kdl'
 
 [templates.rofi]
-input_path = './templates/rofi-colors.rasi'
+input_path = 'templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
+
+[templates.ironbar]
+input_path = 'templates/ironbar-colors.css'
+output_path = '~/.config/ironbar/colors.css'
+post_hook = 'pkill ironbar ; ironbar'
+
+[templates.pywalfox]
+input_path = 'templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update &'
