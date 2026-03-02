@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Yazi
+Exec=kitty --class yazi-fm -e yazi %u
+Icon=folder
+Terminal=false
+Categories=System;FileManagement;
+MimeType=inode/directory;

@@ -1,3 +1,3 @@
-pkg: niri rofi thunar kitty ironbar waypaper swww swaybg satty wireplumber playerctl brightnessctl firefox hyprlock wl-clipboard clipse hyprpicker fcitx5-im fcitx5-rime matugen polkit-gnome iwd impala
+pkg: paru niri rofi yazi kitty ironbar swww swaybg satty wireplumber playerctl brightnessctl firefox hyprlock wl-clipboard clipse hyprpicker fcitx5-im fcitx5-rime matugen polkit-gnome iwd impala imv
 stow: ~
 cmd: sudo systemctl start iwd && sudo systemctl enable iwd

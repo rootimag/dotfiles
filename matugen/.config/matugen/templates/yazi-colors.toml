@@ -1,0 +1,27 @@
+# matugen 配色文件
+
+[manager]
+cwd = { fg = 6 }
+
+hovered         = { fg = 0, bg = 4, bold = true }
+preview_hovered = { underline = true }
+
+find_keyword  = { fg = 3, italic = true }
+find_position = { fg = 5, bg = "reset", bold = true }
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = 8, bg = 8 }
+
+mode_normal = { fg = 0, bg = 4, bold = true }
+mode_select = { fg = 0, bg = 2, bold = true }
+mode_unset  = { fg = 0, bg = 5, bold = true }
+
+[filetype]
+rules = [
+	{ mime = "image/*", fg = 6 },
+	{ mime = "video/*", fg = 5 },
+	{ mime = "audio/*", fg = 3 },
+	{ mime = "application/zip", fg = 1 },
+]

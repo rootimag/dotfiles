@@ -10,8 +10,19 @@
 | --- | --- |
 | 📁[matugen/]| matugen 色彩动态更新 |
 | 📁[scripts/] | 共用脚本，包括 matugen更新和截图 |
+| 📁[fastfetch/] | fastfetch 配置 | 
 | 📁[niri/] | niri 配置 |
 | 📁[rofi/] | rofi 配置 |
+| 📁[btop/] | btop 配置 |
+| 📁[ptwalfox/] | firefox 配置 |
+| 📁[gtk/] | gtk 配置 |
+| 📁[kitty/] | kitty 配置 |
+| 📁[nvim/] | nvim 配置 |
+| 📁[mako/] | mako 配置 |
+| 📁[yazi/] | yazi 配置 |
+| 📁[zsh/] | zsh 配置 |
+| 📁[wlogout/] | wlogout 配置 |
+| 📁[wallpaper/] | 壁纸 |
 | 📁[ironbar/] | ironbar 配置 |
 
 [一键安装脚本](#安装脚本)

@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+
+# 待办存储根目录
+TODO_DIR="$HOME/.cache/todos"
+mkdir -p "$TODO_DIR"
+
+# 内部函数：检测项目状态并返回带图标的名
+get_project_display() {
+    local proj=$1
+    local task_file="$TODO_DIR/$proj/tasks.txt"
+    
+    if [ ! -f "$task_file" ] || [ ! -s "$task_file" ]; then
+        echo "󰉖 $proj (空)"
+    elif ! grep -q "󰄱" "$task_file"; then
+        echo "󰄴 $proj (已完成)"
+    else
+        echo "󰉋 $proj"
+    fi
+}
+
+# 模式处理 
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    echo "󰄲  用法: todo [项目名] [内容]" ; exit 0
+fi
+
+# 快速添加模式
+if [ $# -ge 2 ]; then
+    proj_dir="$TODO_DIR/$1"
+    mkdir -p "$proj_dir" ; shift
+    echo "󰄱 $*" >> "$proj_dir/tasks.txt"
+    echo -e "\033[32m󰄬 [已添加]\033[0m $*" ; exit 0
+fi
+
+# 任务管理逻辑 
+manage_tasks() {
+    local project=$1
+    local task_file="$TODO_DIR/$project/tasks.txt"
+    touch "$task_file"
+
+    while true; do
+        local selected=$(cat "$task_file" | fzf \
+            --height 60% --layout=reverse --border=rounded \
+            --prompt "󱗝 $project > " \
+            --header "󰌑 切换状态 | 󰍶 Ctrl-N:新建 | 󰆴 Ctrl-X:删除 | 󰌍 BS:返回" \
+            --bind "backspace:abort" \
+            --color="hl:4,fg+:4,pointer:4" \
+            --expect="ctrl-n,ctrl-x")
+
+        key=$(head -1 <<< "$selected")
+        content=$(tail -n +2 <<< "$selected")
+
+        if [ -z "$key" ] && [ -z "$content" ]; then break; fi
+
+        if [[ "$key" == "ctrl-n" ]]; then
+            echo -n "󰏫 新任务: " ; read -r new_task
+            [ -n "$new_task" ] && echo "󰄱 $new_task" >> "$task_file"
+        elif [[ "$key" == "ctrl-x" ]]; then
+            [ -n "$content" ] && sed -i "\|$content|d" "$task_file"
+        elif [ -n "$content" ]; then
+            [[ "$content" == "󰄱"* ]] && new_val=$(echo "$content" | sed 's/󰄱/󰄲/') || new_val=$(echo "$content" | sed 's/󰄲/󰄱/')
+            sed -i "s|$content|$new_val|" "$task_file"
+        fi
+    done
+}
+
+# 主循环：项目选择 
+while true; do
+    selected_line=$( (
+        raw_list=$(ls -1 "$TODO_DIR" 2>/dev/null)
+        if [ -n "$raw_list" ]; then
+            while read -r p; do
+                [ -n "$p" ] && get_project_display "$p"
+            done <<< "$raw_list"
+        fi
+    ) | sed '/^$/d' | fzf \
+        --height 50% --layout=reverse --border=rounded \
+        --prompt "󰉋 项目列表 > " \
+        --header "󰌑 进入 | 󰍶 Ctrl-N:新建项目 | 󰆴 Ctrl-X:删除项目" \
+        --color="hl:4,pointer:4" \
+        --expect="ctrl-n,ctrl-x")
+
+    key=$(head -1 <<< "$selected_line")
+    full_text=$(tail -n +2 <<< "$selected_line")
+    proj_name=$(echo "$full_text" | awk '{print $2}')
+
+    if [ -z "$key" ] && [ -z "$proj_name" ]; then exit 0; fi
+
+    if [[ "$key" == "ctrl-n" ]]; then
+        echo -n "󰉓 新项目名称: " ; read -r new_p
+        [ -n "$new_p" ] && mkdir -p "$TODO_DIR/$new_p" && touch "$TODO_DIR/$new_p/tasks.txt"
+    elif [[ "$key" == "ctrl-x" ]]; then
+        if [ -n "$proj_name" ]; then
+            echo -n "󰆴 确定删除 $proj_name ? (y/n): " ; read -r conf
+            [ "$conf" == "y" ] && rm -rf "$TODO_DIR/$proj_name"
+        fi
+    elif [ -n "$proj_name" ]; then
+        manage_tasks "$proj_name"
+    fi
+done

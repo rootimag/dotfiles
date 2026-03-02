@@ -17,9 +17,8 @@ window-rule {
 // 工具类
 window-rule {
     match app-id="imv"
-    match app-id="clipse-gui"
     match title="satty"
-    match app-id="fcitx" title="Fcitx5 Input Window" 
+    match app-id="fcitx"
     match app-id="waypaper"
     match title="重命名"
     match title="另存为"
@@ -35,6 +34,7 @@ window-rule {
     open-floating true
 }
 window-rule {
+    match app-id="wallpaper"
     match app-id="impala"
     min-width 960
     min-height 600

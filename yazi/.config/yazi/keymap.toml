@@ -1,0 +1,14 @@
+[[mgr.prepend_keymap]]
+on   = [ "g", "t" ]
+run  = "cd ~/.local/share/Trash/files"
+desc = "Go to trash"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "z" ]
+run  = "shell 'zip -r \"${1%.*}.zip\" \"$@\"' --confirm"
+desc = "Compress selected to ZIP"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "x" ]
+run  = "shell '7z x \"$1\" -o* -y' --confirm"
+desc = "Extract to a new directory"

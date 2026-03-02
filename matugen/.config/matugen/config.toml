@@ -7,17 +7,69 @@ command = "swww"
 [templates.niri]
 input_path = 'templates/niri-colors.kdl'
 output_path = '~/.config/niri/colors.kdl'
+post_hook = 'niri msg action load-config-file && echo -e "\e[32m[ OK ] niri 颜色已更新\e[0m"'
 
 [templates.rofi]
 input_path = 'templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
+post_hook = 'echo -e "\e[32m[ OK ] rofi 颜色已更新\e[0m"'
 
 [templates.ironbar]
 input_path = 'templates/ironbar-colors.css'
 output_path = '~/.config/ironbar/colors.css'
-post_hook = 'pkill ironbar ; ironbar'
+post_hook = '(pkill ironbar || true) && sleep 0.1 && (setsid ironbar > /dev/null 2>&1 &) && echo -e "\e[32m[ OK ] ironbar 颜色已更新\e[0m"'
 
 [templates.pywalfox]
 input_path = 'templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
-post_hook = 'pywalfox update &'
+post_hook = 'pywalfox update && echo -e "\e[32m[ OK ] firefox 颜色已更新\e[0m"'
+
+[templates.hyprlock]
+input_path = 'templates/hyprlock-colors.conf'
+output_path = '~/.config/hypr/colors.conf'
+post_hook = 'echo -e "\e[32m[ OK ] hyprlock 颜色已更新\e[0m"'
+
+[templates.mako]
+input_path = 'templates/mako-colors'
+output_path = '~/.config/mako/config'
+post_hook = 'makoctl reload || (mako &) && echo -e "\e[32m[ OK ] mako 颜色已更新\e[0m"'
+
+[templates.gtk3]
+input_path = 'templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'mkdir -p ~/.config/gtk-4.0 && cp ~/.config/gtk-3.0/colors.css ~/.config/gtk-4.0/colors.css && echo -e "\e[32m[ OK ] gtk 颜色已更新\e[0m"' 
+
+[templates.kitty]
+input_path = 'templates/kitty-colors.conf'
+output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -USR1 kitty && echo -e "\e[32m[ OK ] kitty 颜色已更新\e[0m"'
+
+[templates.fzf]
+input_path = 'templates/fzf-colors.zsh'
+output_path = '~/.config/zsh/conf.d/colors.zsh'
+post_hook = 'echo -e "\e[32m[ OK ] fzf 颜色已更新\e[0m"'
+
+[templates.starship]
+input_path = 'templates/starship-colors.toml'
+output_path = '~/.config/starship.toml'
+post_hook = 'echo -e "\e[32m[ OK ] starship 颜色已更新\e[0m"'
+
+[templates.wlogout]
+input_path = 'templates/wlogout-colors.css'
+output_path = '~/.config/wlogout/colors.css'
+post_hook = 'echo -e "\e[32m[ OK ] wlogout 颜色已更新\e[0m"'
+
+[templates.wlogout-recolor]
+input_path = 'templates/wlogout/recolor.sh'
+output_path = '~/.config/wlogout/icons/recolor.sh'
+post_hook = 'chmod +x ~/.config/wlogout/icons/recolor.sh && (setsid bash ~/.config/wlogout/icons/recolor.sh > /dev/null 2>&1 &) && echo -e "\e[32m[ OK ] wlogout icon 颜色已更新\e[0m"'
+
+[templates.yazi]
+input_path = 'templates/yazi-colors.toml'
+output_path = '~/.config/yazi/colors.toml'
+post_hook = 'echo -e "\e[32m[ OK ] yazi 颜色已更新\e[0m"'
+
+[templates.zen]
+input_path = 'templates/btop-colors.theme'
+output_path = '~/.config/btop/themes/colors.theme'
+post_hook = 'echo -e "\e[32m[ OK ] btop 颜色已更新\e[0m"'

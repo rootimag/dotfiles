@@ -1,0 +1,3 @@
+pkg: yazi trash-cli xdg-desktop-portal-gtk kitty unzip zip 7zip
+stow: ~
+cmd: xdg-mime default yazi.desktop inode/directory

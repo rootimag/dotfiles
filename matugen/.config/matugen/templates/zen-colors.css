@@ -1,0 +1,15 @@
+/* matugen 配色文件 */
+:root {
+  --matugen-primary: {{colors.primary.default.hex}};
+  
+  /* 解决太黑：使用最高等级的容器色，明度更高且色彩感更足 */
+  --matugen-bg: {{colors.surface_container_highest.default.hex}}; 
+
+  /* 解决看不清：强制使用对应的亮色文字/图标色 */
+  --matugen-fg: {{colors.on_surface.default.hex}};
+  --matugen-fg-dim: {{colors.on_surface_variant.default.hex}};
+
+  /* 选中态 */
+  --matugen-container: {{colors.primary_container.default.hex}};
+  --matugen-on-container: {{colors.on_primary_container.default.hex}};
+}

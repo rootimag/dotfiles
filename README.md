@@ -21,6 +21,15 @@
 | Wayland 合成器 | [niri](https://github.com/niri-wm/niri) |
 | rofi 应用启动器 | [rofi](https://github.com/davatorium/rofi) |
 | ironbar 状态栏 | [ironbar](https://github.com/JakeStanger/ironbar) |
+| btop 终端进程查看 | [btop](https://github.com/aristocratos/btop) |
+| ptwalfox 浏览器美化 | [firefox](https://github.com/mozilla-firefox/firefox) |
+| kitty 终端模拟器 | [kitty](https://github.com/kovidgoyal/kitty) |
+| nvim 文件编辑器 | [nvim](https://github.com/neovim/neovim) |
+| mako 通知 | [mako](https://github.com/sqlalchemy/mako) |
+| yazi 终端文件管理器 | [yazi](https://github.com/sxyazi/yazi) |
+| wlogout 关机管理器 | [wlogout](https://github.com/ArtsyMacaw/wlogout) |
+| zsh Shell | zsh |
+| fastfetch 快速获取信息 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | 
 
 ---
 
@@ -34,11 +43,22 @@
 
 ```
 .
-├── scripts/                # 共用脚本，包括 matugen更新和截图
-├── matugen/                # matugen 色彩动态更新 
-├── niri/                   # niri 配置
-├── rofi/                   # rofi 配置
-└── ironbar/                # ironbar 配置
+├── scripts/                # 共用脚本，包括 matugen 更新和截图
+├── matugen/                # matugen 色彩动态更新 (模板与配置)
+├── niri/                   # niri 窗口管理器配置
+├── rofi/                   # rofi 启动器配置
+├── ironbar/                # ironbar 状态栏配置
+├── btop/                   # btop 系统监控配置
+├── ptwalfox/               # firefox 动态色彩定制 (Potatofox)
+├── gtk/                    # gtk 界面主题配置
+├── kitty/                  # kitty 终端配置
+├── nvim/                   # nvim 编辑器配置
+├── mako/                   # mako 通知守护进程配置
+├── yazi/                   # yazi 终端文件管理器配置
+├── zsh/                    # zsh 终端环境配置
+├── wlogout/                # wlogout 注销界面配置
+├── fastfetch/              # fastfetch 快速获取系统信息
+└── wallpaper/              # 壁纸资源库 (Matugen 颜色来源)
 ```
 
 ---

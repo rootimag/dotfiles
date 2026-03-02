@@ -1,0 +1,2 @@
+pkg: zsh zsh-completions fzf lsd starship zoxide
+stow: ~

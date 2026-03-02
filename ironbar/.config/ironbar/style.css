@@ -1,7 +1,7 @@
 @import "colors.css";
 
 * {
-    font-family: "JetBrainsMono Nerd Font Mono";
+    font-family: "JetBrainsMono Nerd Font";
     font-size: 14px;
 }
 
@@ -144,7 +144,12 @@ calendar {
     border-radius: 1.4rem;
     padding: 0.2rem 0.6rem;
     margin: 0.4rem;
-    gap: 0.5em;
+}
+.music:hover {
+    color: @primary;
+    background-color: alpha(@primary, 0.10);
+    border-color: alpha(@primary, 0.5);
+    transition: all 0.3s ease;
 }
 .music .label {
     font-size: 0.9rem; 

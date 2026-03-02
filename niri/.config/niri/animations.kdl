@@ -1,7 +1,7 @@
 // 动画全局设置
 
 animations {
-    slowdown 1.0
+    slowdown 1
 
     window-open {
         spring damping-ratio=0.9 stiffness=1000 epsilon=0.0001
