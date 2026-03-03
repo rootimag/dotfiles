@@ -14,25 +14,6 @@
 - **极简维护**：只需更换壁纸，终端、窗口管理器和应用脚本会自动更新。
 - **美观整洁**: 配置文件全部遵循 XDG 规范，且有详细注释，除 Matugen 和 scripts 外配置文件关联性较低，便于移植
 
-## 🛠 已实现应用
-
-| 类别 | 工具 | 
-| --- | --- |
-| Wayland 合成器 | [niri](https://github.com/niri-wm/niri) |
-| rofi 应用启动器 | [rofi](https://github.com/davatorium/rofi) |
-| ironbar 状态栏 | [ironbar](https://github.com/JakeStanger/ironbar) |
-| btop 终端进程查看 | [btop](https://github.com/aristocratos/btop) |
-| ptwalfox 浏览器美化 | [firefox](https://github.com/mozilla-firefox/firefox) |
-| kitty 终端模拟器 | [kitty](https://github.com/kovidgoyal/kitty) |
-| nvim 文件编辑器 | [nvim](https://github.com/neovim/neovim) |
-| mako 通知 | [mako](https://github.com/sqlalchemy/mako) |
-| yazi 终端文件管理器 | [yazi](https://github.com/sxyazi/yazi) |
-| wlogout 关机管理器 | [wlogout](https://github.com/ArtsyMacaw/wlogout) |
-| zsh Shell | zsh |
-| fastfetch 快速获取信息 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | 
-
----
-
 ## 🚀 快速开始
 
 在安装指南有 **[详细介绍](./INSTALL.md)**
@@ -58,6 +39,7 @@
 ├── zsh/                    # zsh 终端环境配置
 ├── wlogout/                # wlogout 注销界面配置
 ├── fastfetch/              # fastfetch 快速获取系统信息
+├── hyprlock/               # hyprlock 系统锁屏配置
 └── wallpaper/              # 壁纸资源库 (Matugen 颜色来源)
 ```
 
