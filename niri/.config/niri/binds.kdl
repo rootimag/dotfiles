@@ -17,7 +17,6 @@ binds {
     // 脚本相关
     Mod+F1 hotkey-overlay-title="开关 Fcitx5 输入法" { spawn-sh "pkill fcitx5 || fcitx5"; }
     Mod+F2 hotkey-overlay-title="开关任务栏" { spawn-sh "pkill -x ironbar || ironbar"; }
-    Mod+F11 hotkey-overlay-title="代理工具" { spawn "sh" "-c" "pkill pkexec; pkexec sing-box run -c /home/rootimag/.config/sing-box/config.json; notify-send 代理已开启"; }
     Mod+F12 hotkey-overlay-title="截图工具" { spawn "~/.local/bin/screenshot.sh"; }
 
     // 截图分步骤
