@@ -14,10 +14,13 @@ open = [
 	{ run = 'xdg-open "$@"', desc = "Open" },
 ]
 imv = [
-    { run = 'imv "$@"', detach = true, desc = "imv" },
+    { run = 'imv "$@"', detach = true, desc = "Open with imv" },
 ]
 mpv = [
-    { run = 'mpv "$@"', detach = true, desc = "mpv" },
+    { run = 'mpv "$@"', detach = true, desc = "Open with mpv" },
+]
+font-preview = [
+	{ run = 'gnome-font-viewer "$@"', desc = "Open with GNOME Font Viewer", block = false }
 ]
 
 [open]
@@ -27,8 +30,9 @@ rules = [
 	{ mime = "image/*", use = [ "imv", "open" ] },
     { mime = "audio/*", use = [ "mpv", "open" ] },
 	{ mime = "video/*", use = [ "mpv", "open" ] },
-    { mime = "inode/empty", use = [ "edit", "open" ] },
+    { mime = "font/*", use = "font-preview" },
     { mime = "application/*", use = [ "edit", "open"] },
+    { mime = "inode/empty", use = [ "edit", "open" ] },
     { name = "*", use = [ "edit", "open" ] },
 ]
 

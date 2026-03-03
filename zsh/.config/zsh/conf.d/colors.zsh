@@ -1,6 +1,6 @@
 # matugen 配色文件
 
-export FZF_DEFAULT_OPTS="--color=fg:#e9e2d4,hl:#dcc66e \
---color=fg+:#cdc6b4,hl+:#dcc66e \
---color=info:#d2c6a1,prompt:#dcc66e,pointer:#dcc66e \
---color=marker:#aad0b2,spinner:#dcc66e,header:#d2c6a1"
+export FZF_DEFAULT_OPTS="--color=fg:#f0dfd8,hl:#ffb693 \
+--color=fg+:#d7c2b9,hl+:#ffb693 \
+--color=info:#e6beac,prompt:#ffb693,pointer:#ffb693 \
+--color=marker:#d0c890,spinner:#ffb693,header:#e6beac"
