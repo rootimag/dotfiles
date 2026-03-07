@@ -1,64 +1,68 @@
 return {
-    -- nvim 欢迎界面 --
     "goolord/alpha-nvim",
     event = "VimEnter",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = function()
-        local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
-        
-        -- header 配置 --
-    	dashboard.section.header = require("config.header")
-        
-        -- button 配置 --
+
+        dashboard.section.header.val = {
+            [[                               __                ]],
+            [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+            [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+            [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+            [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+            [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+            [[                                                 ]],
+            [[            - NEOPHYTE TERMINAL SYSTEM -         ]],
+        }
+        dashboard.section.header.opts.hl = "AlphaHeader"
+
         dashboard.section.buttons.val = {
-            dashboard.button("f", "  查找文件", ":Telescope find_files<CR>"),
-            dashboard.button("e", "  浏览文件", ":Yazi<CR>"),
-            dashboard.button("n", "  新建文件", ":enew<CR>"),
-            dashboard.button("r", "  最近文件", ":Telescope oldfiles<CR>"),
-            dashboard.button("s", "  设置", ":e $MYVIMRC<CR>"),
-            dashboard.button("q", "  退出", ":qa<CR>"),
-        }
-        dashboard.section.buttons.opts.hl = "AlphaButtons"
-
-        -- footer 配置 --
-        local fortune = "α 结束乐队 Never Ends 󰝚 α"
-	    dashboard.section.footer.val = fortune
-        dashboard.section.footer.opts.hl = "AlphaFooter"
-        
-        -- layout 布局 --
-        dashboard.config.layout = {
-            { type = "padding", val = 1 },              
-            dashboard.section.header,                   
-            { type = "padding", val = 1 },
-            dashboard.section.buttons,
-            { type = "padding", val = 1 },
-            dashboard.section.footer,
+            dashboard.button("f", "󰍉  SEARCH_FILES", ":Telescope find_files<CR>"),
+            dashboard.button("e", "󱏒  FILE_EXPLORE", ":Yazi<CR>"),
+            dashboard.button("n", "󰝒  NEW_BUFFER",   ":enew<CR>"),
+            dashboard.button("r", "󱋡  RECENT_CACHE", ":Telescope oldfiles<CR>"),
+            dashboard.button("s", "󰒓  SYSTEM_SETUP", ":e $MYVIMRC<CR>"),
+            dashboard.button("q", "󰈆  TERMINATE",    ":qa<CR>"),
         }
 
-        -- color 颜色 --
-        vim.api.nvim_create_autocmd("ColorScheme", {
-            callback = function()
-                vim.api.nvim_set_hl(0, "AlphaHeader",  { fg = "#7aa2f7" })
-                vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#bb9af7" })
-                vim.api.nvim_set_hl(0, "AlphaFooter",  { fg = "#9ece6a" })
-            end,
-        })
-        
-        -- Lazy 启动统计，将覆盖 footer --
+        for _, button in ipairs(dashboard.section.buttons.val) do
+            button.opts.hl = "AlphaButtons"
+            button.opts.hl_shortcut = "AlphaShortcut"
+            button.opts.width = 32
+        end
+
+        dashboard.config.layout[1].val = 2
+
+        return dashboard
+    end,
+    config = function(_, dashboard)
+        local set_hl = vim.api.nvim_set_hl
+        set_hl(0, "AlphaHeader",   { fg = "#89b4fa", bold = true })
+        set_hl(0, "AlphaButtons",  { fg = "#9399b2" })
+        set_hl(0, "AlphaShortcut", { fg = "#fab387", bold = true })
+        set_hl(0, "AlphaFooter",   { fg = "#585b70", italic = true })
+
         vim.api.nvim_create_autocmd("User", {
             pattern = "LazyVimStarted",
             callback = function()
                 local stats = require("lazy").stats()
                 local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-                dashboard.section.footer.val = "" .. stats.count .. " 个插件加载完成，耗时 " .. ms .. "ms"
+                dashboard.section.footer.val = {
+                    " ",
+                    string.format("󱐌 MODULES_LOADED: %d | LATENCY: %s ms", stats.count, ms)
+                }
                 pcall(vim.cmd.AlphaRedraw)
             end,
         })
 
-        return dashboard
-    end,
-    config = function(_, dashboard)
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "alpha",
+            callback = function()
+                vim.opt_local.cursorline = false
+            end,
+        })
+
         require("alpha").setup(dashboard.config)
     end,
 }

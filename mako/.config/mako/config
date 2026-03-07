@@ -19,13 +19,13 @@ actions=1
 default-timeout=5000
 ignore-timeout=0
 
-background-color=#16130bdd
-text-color=#e9e2d4
-border-color=#dcc66e
-progress-color=over #544600
+background-color=#131318dd
+text-color=#e4e1e9
+border-color=#bdc2ff
+progress-color=over #3c4279
 
 [urgency=low]
-border-color=#969080
+border-color=#91909a
 default-timeout=2000
 
 [urgency=high]
@@ -35,7 +35,7 @@ default-timeout=0
 
 [app-name=Spotify]
 group-by=app-name
-border-color=#aad0b2
+border-color=#e7b9d6
 
 [app-name=backlight]
 group-by=app-name

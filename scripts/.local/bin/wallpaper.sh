@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[[ -f ~/.config/zsh/conf.d/colors.zsh ]] && source ~/.config/zsh/conf.d/colors.zsh
+
 # 配置文件
 WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/Pictures/Wallpapers}"
 

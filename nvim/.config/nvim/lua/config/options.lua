@@ -1,20 +1,45 @@
--- neovim 核心选项 --
 local opt = vim.opt
 
--- 行号 --
-opt.number = true       -- 显示绝对行号
-opt.relativenumber = true  -- 显示相对行号
+local disabled_built_ins = {
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+    "gzip",
+    "zip",
+    "zipPlugin",
+    "tar",
+    "tarPlugin",
+    "getscript",
+    "getscriptPlugin",
+    "vimball",
+    "vimballPlugin",
+    "1html_plugin",
+    "logipat",
+    "rrhelper",
+    "spellfile_plugin",
+    "matchit",
+    "editorconfig",
+    "matchparen",
+}
+
+for _, plugin in ipairs(disabled_built_ins) do
+    vim.g["loaded_" .. plugin] = 0
+end
+
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+
+opt.number = true
+opt.relativenumber = true
 opt.cursorline = true
 
--- 缩进 --
-opt.tabstop = 4         -- TAB 键显示为4个空格
-opt.shiftwidth = 4      -- 自动缩进使用的空格数
-opt.expandtab = true    -- 将 TAB 转换为空格
-opt.autoindent = true   -- 继承上一行缩进
-opt.smartindent = true  -- 基于语法结构的智能缩进
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.autoindent = true
+opt.smartindent = true
 
--- 颜色 --
 opt.background = "dark"
-
--- 配置主题 tokyonight --
-vim.cmd.colorscheme "tokyonight"

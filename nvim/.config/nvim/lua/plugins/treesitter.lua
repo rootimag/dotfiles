@@ -1,8 +1,8 @@
 return {
-    -- 语法解析器 --
     'nvim-treesitter/nvim-treesitter',
-    branch = "main", -- 使用 main 分支 --
-    lazy = false,
+    branch = "main",
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
     build = ':TSUpdate',
     dependencies = {
         { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
@@ -10,13 +10,10 @@ return {
         { "HiPhish/rainbow-delimiters.nvim" },
     },
 
-    config = function() 
-        -- 直接引用 nvim-treesitter 模块 --
+    config = function()
         local ts = require('nvim-treesitter')
 
-        -- 核心配置 --
         ts.setup({
-            -- 这里的配置项目前在 main 分支中被直接支持 --
             highlight = {
                 enable = true,
                 additional_vim_regex_highlighting = false,
@@ -24,7 +21,6 @@ return {
             indent = {
                 enable = true
             },
-            -- 增量选择 --
             incremental_selection = {
                 enable = true,
                 keymaps = {
@@ -36,6 +32,6 @@ return {
         })
 
         ts.install({
-            "lua", "vim", "vimdoc", "query", "cpp", "kdl", "css", "json", "markdown", "markdown_inline"})
+            "lua", "vim", "vimdoc", "query", "cpp", "kdl", "css", "json", "markdown", "markdown_inline", "regex", "bash" })
     end,
 }
