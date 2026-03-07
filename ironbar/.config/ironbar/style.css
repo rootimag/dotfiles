@@ -2,7 +2,8 @@
 
 * {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 14px;
+    font-size: 15px;
+    outline: none;
 }
 
 window {
@@ -12,22 +13,28 @@ window {
 #bar {
     color: alpha(@on_background, 0.7);
     background-color: alpha(@background, 0.4);
-    border-radius: 1.4rem;
+    border-radius: 1.5rem;
+    border: 1px solid alpha(@outline, 0.2);
+    box-shadow: 0 4px 12px alpha(black, 0.15);
+    margin: 0.5rem 0.8rem 0 0.8rem;
+}
+
+.launch, .workspaces button, .tray .item, .music, .clock-module {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .launch {
     color: @on_surface;
-    background-color: alpha(@primary, 0.7);
+    background-color: alpha(@primary, 0.8);
     border-radius: 1.4rem;
-    border: 0.1rem solid alpha(@outline, 0.7);
-    padding: 0.4rem 0.8rem;
+    border: 0.1rem solid alpha(@outline, 0.5);
+    padding: 0.4rem 1rem;
     margin: 0.5rem;
 }
 .launch:hover {
     color: @on_primary_container;
     background-color: alpha(@primary, 0.5);
     border-color: @primary;
-    transition: all 0.3s ease;
 }
 
 .popup-menu{
@@ -82,7 +89,7 @@ window {
 }
 .workspaces button:hover {
     color: @on_secondary_container;
-    background: alpha(@secondary_container, 0.6);
+    background: alpha(@secondary_container, 0.8);
 }
 
 .tray {

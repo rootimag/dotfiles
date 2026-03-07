@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+# 颜色定义（适配你的 TUI 审美）
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+# 处理参数
+MODE=""
+case "$1" in
+    -Ss) MODE="INSTALL" ;;
+    -Rns) MODE="REMOVE" ;;
+    *) exec paru "$@" ;; # 其他命令（如 -Syu）直接交给 paru 处理
+esac
+
+shift
+USE_AUR=false
+QUERY_ARGS=()
+
+for arg in "$@"; do
+    [[ "$arg" == "--aur" ]] && USE_AUR=true || QUERY_ARGS+=("$arg")
+done
+QUERY="${QUERY_ARGS[*]}"
+
+# 根据模式和 --aur 决定数据源与操作命令
+if [[ "$MODE" == "INSTALL" ]]; then
+    ACTION_CMD="paru -S"
+    PROMPT_STR="󰈺 安装搜索: "
+    if [ "$USE_AUR" = true ]; then
+        SOURCE_CMD="paru -Slq"
+        echo -e "${GREEN}正在从 [Official + AUR] 搜索...${NC}"
+    else
+        SOURCE_CMD="pacman -Slq"
+        echo -e "${GREEN}正在从 [Official Repo] 搜索... (使用 --aur 包含 AUR)${NC}"
+    fi
+elif [[ "$MODE" == "REMOVE" ]]; then
+    ACTION_CMD="paru -Rns"
+    PROMPT_STR="󱂥 卸载选择: "
+    if [ "$USE_AUR" = true ]; then
+        # 列出所有已安装包（包含 AUR）
+        SOURCE_CMD="paru -Qq"
+        echo -e "${RED}正在检索已安装的包 (包含 AUR)...${NC}"
+    else
+        # 仅列出从官方仓库安装的包 (排除外来包/AUR)
+        SOURCE_CMD="pacman -Qnq"
+        echo -e "${RED}正在检索已安装的官方包... (使用 --aur 包含 AUR)${NC}"
+    fi
+fi
+
+# 启动 fzf TUI
+SELECTED=$($SOURCE_CMD | fzf \
+    --query="$QUERY" \
+    --multi \
+    --header " [Tab] 多选 | [Enter] 确认操作 | [ESC] 取消" \
+    --prompt "$PROMPT_STR" \
+    --preview 'paru -Si {1} 2>/dev/null || paru -Qi {1}' \
+    --preview-window 'right:60%:wrap' \
+    --layout=reverse)
+
+# 执行操作（修复 TTY 交互问题）
+if [[ -n "$SELECTED" ]]; then
+    # 使用 xargs -o (open-tty) 确保 [Y/n] 确认提示能正常接收键盘输入
+    echo "$SELECTED" | xargs -ro $ACTION_CMD
+else
+    echo "未选择任何软件包。"
+fi

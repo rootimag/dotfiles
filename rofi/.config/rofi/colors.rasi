@@ -1,9 +1,9 @@
 /* matugen 配色文件 */
 
 * {
-    bg:          #1b1b21D9; 
-    bg-selected: #29292fF2; 
-    fg:          #e4e1e9;
-    fg-selected: #bdc2ff;
-    accent:      #dfe0ffCC;
+    bg:          #22191bD9; 
+    bg-selected: #312829F2; 
+    fg:          #efdee0;
+    fg-selected: #ffb1c3;
+    accent:      #ffd9e0CC;
 }

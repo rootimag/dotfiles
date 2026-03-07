@@ -27,6 +27,7 @@ for _, plugin in ipairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 0
 end
 
+vim.opt.laststatus = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0

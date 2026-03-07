@@ -3,7 +3,7 @@ alias hf='history | fzf | wl-copy'
 alias sr='sudo sing-box run -c'
 
 alias ls='lsd -l'
-alias ll='lsd -la'
+alias la='lsd -la'
 alias history='history 1'
 alias update='paru -Syu'
 alias install='paru -S'

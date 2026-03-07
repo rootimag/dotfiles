@@ -5,7 +5,7 @@
             "type": "menu",
             "class": "launch",
             "label": "archlinux",
-            "on_click_right": "kitty --class wallpaper -e ~/.local/bin/wallpaper.sh",
+            "on_click_right": "kitty --class wallpaper -e ~/.local/bin/wallpaper",
             "on_click_middle": "rofi -show drun"
         }
     ],

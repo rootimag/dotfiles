@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# 配置文件路径
+CONFIG="$HOME/.config/pj/paths.txt"
+mkdir -p "$(dirname "$CONFIG")"
+touch "$CONFIG"
+
+# 内部函数：获取扫描路径
+_get_pj_paths() {
+    grep -v '^#' "$CONFIG" | grep -v '^$' | while read -r p; do
+        eval p_expanded="$p"
+        [[ -d "$p_expanded" ]] && echo "$p_expanded"
+    done
+}
+
+# 内部函数：生成项目列表
+_list_projects() {
+    local paths
+    paths=$(_get_pj_paths)
+    if [[ -n "$paths" ]]; then
+        find $paths -maxdepth 1 -mindepth 1 -type d 2>/dev/null
+    fi
+}
+
+# 核心 fzf 交互
+# --bind 逻辑说明：
+# ctrl-a: 将当前运行目录追加到配置，并重新加载列表
+# ctrl-d: 弹出二级 fzf 选择要删除的扫描源，同步更新配置并重载
+selected=$(_list_projects | fzf \
+    --height 60% --reverse --border --ansi \
+    --header "回车: 跳转 | Ctrl-A: 增加当前目录 | Ctrl-D: 管理扫描源" \
+    --preview 'eza --icons --tree --level 1 {} 2>/dev/null || ls -F {}' \
+    --bind "ctrl-a:execute(echo \$PWD >> $CONFIG)+reload(_list_projects)" \
+    --bind "ctrl-d:execute(
+        _get_pj_paths | fzf --multi --header '选择要删除的扫描源(Tab多选)' | xargs -I [] sed -i '\|[]|d' $CONFIG
+    )+reload(_list_projects)" \
+)
+
+# 输出结果供外部 Shell 捕获
+echo "$selected"

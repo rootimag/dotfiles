@@ -2,22 +2,24 @@
 
 binds {
     // 显示重要快捷键列表。
-    Mod+Shift+Slash hotkey-overlay-title="显示快捷键列表" { spawn "~/.local/bin/showkeys.sh"; }
+    Mod+Shift+Slash hotkey-overlay-title="显示快捷键列表" { spawn "~/.local/bin/showkeys"; }
 
     // 应用程序
     Mod+B hotkey-overlay-title="浏览器" { spawn "firefox"; }
     Mod+E hotkey-overlay-title="文件资源管理器" { spawn "kitty" "--class" "yazi" "-e" "yazi"; }
-    Mod+D hotkey-overlay-title="应用启动器" { spawn-sh "rofi -show drun"; }
+    Mod+D hotkey-overlay-title="应用启动器" { spawn "rofi" "-show" "drun"; }
+    Mod+P hotkey-overlay-title="电源选项" { spawn "wlogout"; }
+    Mod+N hotkey-overlay-title="网络工具" { spawn "kitty" "--class" "impala" "-e" "impala"; }
     Mod+Return hotkey-overlay-title="终端" { spawn "kitty"; }
     
     Mod+Alt+L hotkey-overlay-title="锁屏" { spawn "hyprlock"; }
     Mod+ALT+V hotkey-overlay-title="剪贴板" { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
-    Mod+Alt+W hotkey-overlay-title="切换壁纸" { spawn "kitty" "--class" "wallpaper" "-e" "sh" "-c" "~/.local/bin/wallpaper.sh"; }
+    Mod+Alt+W hotkey-overlay-title="切换壁纸" { spawn "kitty" "--class" "wallpaper" "-e" "sh" "-c" "~/.local/bin/wallpaper"; }
 
     // 脚本相关
     Mod+F1 hotkey-overlay-title="开关 Fcitx5 输入法" { spawn-sh "pkill fcitx5 || fcitx5"; }
     Mod+F2 hotkey-overlay-title="开关任务栏" { spawn-sh "pkill -x ironbar || ironbar"; }
-    Mod+F12 hotkey-overlay-title="截图工具" { spawn "~/.local/bin/screenshot.sh"; }
+    Mod+F12 hotkey-overlay-title="截图工具" { spawn "~/.local/bin/screenshot"; }
 
     // 截图分步骤
     Print  hotkey-overlay-title="选取区域截图"  { screenshot; }
