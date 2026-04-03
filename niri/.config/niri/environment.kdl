@@ -6,4 +6,5 @@ environment {
     GTK_IM_MODULE "fcitx"	        // GTK 输入法模块
     QT_IM_MODULE "fcitx"	        // Qt 输入法模块
     XMODIFIERS "@im=fcitx"	        // X 输入法模块
+    QT_QPA_PLATFORMTHEME "qt6ct"
 }

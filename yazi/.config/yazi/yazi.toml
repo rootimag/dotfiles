@@ -7,29 +7,18 @@ show_hidden    = true
 show_symlink   = true
 
 [opener]
-edit = [
-	{ run = '${EDITOR:-nvim} "$@"', block = true, desc = "Edit" },
-]
-open = [
-	{ run = 'xdg-open "$@"', desc = "Open" },
-]
-imv = [
-    { run = 'imv "$@"', detach = true, desc = "Open with imv" },
-]
-mpv = [
-    { run = 'mpv "$@"', detach = true, desc = "Open with mpv" },
-]
-font-preview = [
-	{ run = 'gnome-font-viewer "$@"', desc = "Open with GNOME Font Viewer", block = false }
-]
+edit = [ { run = '${EDITOR:-nvim} "$@"', block = true, desc = "Edit" }, ]
+open = [ { run = 'xdg-open "$@"', desc = "Open" }, ]
+imv = [ { run = 'imv "$@"', orphan = true, desc = "Open with imv" }, ]
+mpv = [ { run = 'mpv "$@"', orphan = true, desc = "Open with mpv" }, ]
+font-preview = [ { run = '~/.local/bin/fv -f "$@"', desc = "Open with Scripts Font Viewer", block = true }, ]
 
 [open]
 rules = [
 	{ name = "*/", use = [ "edit", "open" ] },
 	{ mime = "text/*", use = [ "edit", "open" ] },
 	{ mime = "image/*", use = [ "imv", "open" ] },
-    { mime = "audio/*", use = [ "mpv", "open" ] },
-	{ mime = "video/*", use = [ "mpv", "open" ] },
+    { mime = "{audio,video}/*", use = [ "mpv", "open" ] },
     { mime = "font/*", use = "font-preview" },
     { mime = "application/*", use = [ "edit", "open"] },
     { mime = "inode/empty", use = [ "edit", "open" ] },

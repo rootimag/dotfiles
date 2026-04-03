@@ -14,7 +14,7 @@ log_warn() { [[ "$DEBUG" -eq 1 ]] && echo -e "\e[33m[WARN]\e[0m $1"; }
 
 # 1. 获取壁纸路径逻辑
 get_current_wall() {
-    local raw=$(swww query 2>/dev/null)
+    local raw=$(awww query 2>/dev/null)
     if [[ "$raw" =~ image:[[:space:]]*([^[:space:]].*) ]]; then
         local path="${BASH_REMATCH[1]}"
         if [[ "$path" == *"blur-"* ]]; then
@@ -28,7 +28,7 @@ get_current_wall() {
             echo "$path"
         fi
     else
-        log_warn "swww query 失败，请确认 swww 是否运行。"
+        log_warn "awww query 失败，请确认 swww 是否运行。"
     fi
 }
 
@@ -62,11 +62,11 @@ apply_logic() {
         
     case "$event" in
         "WINDOW_BLUR")
-            log_info "桌面有窗口：swww 正在切换至模糊图..."
-            swww img "$target_blur" --transition-type fade --transition-duration 0.4 ;;
+            log_info "桌面有窗口：awww 正在切换至模糊图..."
+            awww img "$target_blur" --transition-type fade --transition-duration 0.4 ;;
         "WINDOW_CLEAR")
-            log_info "桌面清空：swww 正在切换至原图..."
-            swww img "$wall" --transition-type fade --transition-duration 0.4 ;;
+            log_info "桌面清空：awww 正在切换至原图..."
+            awww img "$wall" --transition-type fade --transition-duration 0.4 ;;
     esac
 }
 
@@ -78,7 +78,7 @@ cleanup() {
     fi
     if [[ -n "$wall" && -f "$wall" ]]; then
         log_info "脚本退出，恢复原始壁纸..."
-        swww img "$wall" --transition-type fade --transition-duration 0.4
+        awww img "$wall" --transition-type fade --transition-duration 0.4
     fi
     exit 0
 }

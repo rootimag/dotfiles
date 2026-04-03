@@ -6,7 +6,7 @@
 WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/Pictures/Wallpapers}"
 
 # 依赖检查
-for cmd in fzf swww matugen; do
+for cmd in fzf awww matugen; do
     if ! command -v "$cmd" &>/dev/null; then
         echo "Error: 未找到依赖 '$cmd'，请先安装" >&2
         exit 1
@@ -43,10 +43,10 @@ FULL_PATH="$WALLPAPER_DIR/$selected_wallpaper"
 [[ -f "$FULL_PATH" ]] || { echo "Error: 文件不存在: $FULL_PATH" >&2; exit 1; }
 
 # 应用壁纸
-if swww img "$FULL_PATH" --transition-fps 60 --transition-type center; then
+if awww img "$FULL_PATH" --transition-fps 60 --transition-type center; then
     echo "壁纸已切换: $selected_wallpaper"
 else
-    echo "Error: swww 切换失败" >&2
+    echo "Error: awww 切换失败" >&2
     exit 1
 fi
 
