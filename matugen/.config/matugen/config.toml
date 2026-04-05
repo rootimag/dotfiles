@@ -11,11 +11,6 @@ input_path = 'templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
 post_hook = 'echo -e "\e[32m[ OK ] rofi 颜色已更新\e[0m"'
 
-[templates.ironbar]
-input_path = 'templates/ironbar-colors.css'
-output_path = '~/.config/ironbar/colors.css'
-post_hook = '(pkill ironbar || true) && sleep 0.1 && (setsid ironbar > /dev/null 2>&1 &) && echo -e "\e[32m[ OK ] ironbar 颜色已更新\e[0m"'
-
 [templates.pywalfox]
 input_path = 'templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
