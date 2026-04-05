@@ -6,10 +6,38 @@
     font-weight: bold;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.2s ease,
+                text-shadow 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+tooltip {
+    background: alpha(@surface_container, 0.8);
+    border: 2px solid @outline_variant;
+    border-radius: 7px;
+}
+
+tooltip label {
+    font-size: 1em;
+    color: @on_surface;
+    padding: 0.5em 0.5em;
+}
+
+@keyframes slide-down {
+    from {
+        margin-top: -50px;
+        opacity: 0;
+    }
+    to {
+        margin-top: 5px;
+        opacity: 1;
+    }
 }
 
 window#waybar {
     background: transparent;
+    animation: slide-down 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #workspaces button {
@@ -18,11 +46,9 @@ window#waybar {
     padding: 0px 0.56em;
     border-radius: 0;
 }
-
 #workspaces button:hover {
     background: @on_tertiary;
 }
-
 #workspaces button.active {
     color:@tertiary;
 }
@@ -39,6 +65,15 @@ window#waybar {
     font-size: 1.31em;
 }
 
+#network {
+    background-color: @surface_container;
+    color: @secondary;
+}
+#network:hover {
+    color: @primary;
+    text-shadow: 0 0 5px @primary;
+} 
+
 #custom-recorder {
     background-color: @surface_container;
     color: @secondary;
@@ -46,10 +81,10 @@ window#waybar {
     font-size: 1.2em;
 }
 
-#network {
-    background-color: @surface_container;
-    color: @secondary;
-}
+#custom-recorder:hover {
+    color: @primary;
+    text-shadow: 0 0 5px @primary;
+} 
 
 #custom-center-arrow-left-2,
 #custom-center-arrow-right-3 {
@@ -64,6 +99,10 @@ window#waybar {
     color: @on_tertiary;
     min-width: 0.5em;
     padding: 0px 0.4em;
+}
+#idle_inhibitor:hover {
+    color: @on_secondary_container;
+    text-shadow: 0 0 5px @secondary;
 }
 
 #custom-center-arrow-left-3,
@@ -84,6 +123,10 @@ window#waybar {
     background: @primary;
     color: @on_primary;
 }
+#custom-launcher:hover {
+    color: @on_primary_container;
+    text-shadow: 0 0 5px @secondary;
+}
 
 #clock {
     background-color: @tertiary;
@@ -95,6 +138,10 @@ window#waybar {
     background-color: @surface_container;
     color: @primary;
     padding: 0px 0.35em;
+}
+#custom-cava:hover {
+    color: @primary;
+    text-shadow: 0 0 5px @primary;
 }
 
 #custom-center-arrow-right-4 {
@@ -114,7 +161,6 @@ window#waybar {
     padding: 0 0.4em;
     font-size: 1.1em;
 }
-
 #tray menuitem {
     padding: 0.2em; 
     margin: 0.3em;
@@ -132,6 +178,11 @@ window#waybar {
     color: @tertiary;
 }
 
+#pulseaudio:hover {
+    color: @on_tertiary_container; 
+    text-shadow: 0 0 5px @tertiary;
+}
+
 #pulseaudio-slider slider {
     min-height: 0;
     min-width: 0;
@@ -140,14 +191,12 @@ window#waybar {
     box-shadow: none;
     background: none;
 }
-
 #pulseaudio-slider trough {
     background-color: @surface;
     min-height: 0.5em;
     min-width: 4.5em;
     border-radius: 0.3em;
 }
-
 #pulseaudio-slider highlight {
     background-color: @tertiary;
     min-width: 0;
@@ -158,11 +207,14 @@ window#waybar {
     background-color: @surface_container_high;
     color: @tertiary;
 }
+#backlight:hover {
+    color: @on_tertiary_container; 
+    text-shadow: 0 0 5px @tertiary;
+}
 
 #backlight-slider {
     background-color: @surface_container_high;
 }
-
 #backlight-slider slider {
     min-height: 0;
     min-width: 0;
@@ -172,7 +224,6 @@ window#waybar {
     box-shadow: none;
     background: none;
 }
-
 #backlight-slider trough {
     background-color: @background;
     min-height: 0.5em;
@@ -180,7 +231,6 @@ window#waybar {
     border-radius: 0.35em;
     opacity: 0;
 }
-
 #backlight-slider highlight {
     background-color: @tertiary;
     min-width: 0;
@@ -197,4 +247,7 @@ window#waybar {
     background-color: @surface;
     color: @error;
     padding: 0 0.5em;
+}
+#custom-power:hover {
+    color: @error_container;
 }
