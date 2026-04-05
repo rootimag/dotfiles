@@ -2,7 +2,7 @@
 
 // layer-shell 规则
 layer-rule{
-    match namespace="wallpaper"
+    match namespace="awww-daemonoverview"
     place-within-backdrop true
 }
 

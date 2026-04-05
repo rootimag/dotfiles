@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 1. 定义目录和临时文件
+# 定义目录和临时文件
 NIRI_DIR="$HOME/.config/niri"
 MENU_FILE="/run/user/$UID/niri_menu"
 CMDS_FILE="/run/user/$UID/niri_cmds"
@@ -8,7 +8,7 @@ CMDS_FILE="/run/user/$UID/niri_cmds"
 # 确保清理旧数据
 rm -f "$MENU_FILE" "$CMDS_FILE"
 
-# 2. 全局递归扫描
+# 全局递归扫描
 grep -r "hotkey-overlay-title=" "$NIRI_DIR" --include="*.kdl" | grep -v "^[^:]*:[[:space:]]*//" | awk -F'hotkey-overlay-title=' '
     {
         line = $0;
@@ -39,7 +39,7 @@ grep -r "hotkey-overlay-title=" "$NIRI_DIR" --include="*.kdl" | grep -v "^[^:]*:
     }
 '
 
-# 3. 检查并调用 Rofi
+# 检查并调用 Rofi
 if [ ! -f "$MENU_FILE" ]; then
     echo "未找到有效的快捷键。"
     exit 0
@@ -47,10 +47,9 @@ fi
 
 # 调用 Rofi
 IDX=$(rofi -dmenu -i -format i -p "快捷键  " \
-     -l 15 -width 40 -font "JetBrainsMono Nerd Font 12" < "$MENU_FILE")
+     -l 15 -width 40 -font "Maple Mono NF CN 14" < "$MENU_FILE")
 
 if [ -n "$IDX" ]; then
-    # Rofi 的索引从 0 开始，所以需要 +1 适配 sed
     REAL_LINE=$((IDX + 1))
     FULL_ACTION=$(sed -n "${REAL_LINE}p" "$CMDS_FILE")
     

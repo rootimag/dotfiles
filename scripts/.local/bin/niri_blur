@@ -4,7 +4,7 @@
 CACHE_DIR="$HOME/.cache/blur-wallpapers"
 LAST_WALL_FILE="/tmp/niri_last_wall_path"
 BLUR_ARG="0x7"
-DEBUG=0;
+DEBUG=1;
 mkdir -p "$CACHE_DIR"
 
 # 颜色日志输出函数
@@ -12,23 +12,22 @@ log_info() { [[ "$DEBUG" -eq 1 ]] && echo -e "\e[32m[INFO]\e[0m $1"; }
 log_event() { [[ "$DEBUG" -eq 1 ]] && echo -e "\e[34m[EVENT]\e[0m $1"; }
 log_warn() { [[ "$DEBUG" -eq 1 ]] && echo -e "\e[33m[WARN]\e[0m $1"; }
 
-# 1. 获取壁纸路径逻辑
 get_current_wall() {
     local raw=$(awww query 2>/dev/null)
+    # 尝试提取当前主壁纸路径
     if [[ "$raw" =~ image:[[:space:]]*([^[:space:]].*) ]]; then
         local path="${BASH_REMATCH[1]}"
         if [[ "$path" == *"blur-"* ]]; then
             if [[ -f "$LAST_WALL_FILE" ]]; then
                 cat "$LAST_WALL_FILE"
             else
-                log_warn "检测到当前为模糊图但缺失记录文件，请手动切换一次壁纸。"
                 echo "$path"
             fi
         else
             echo "$path"
         fi
     else
-        log_warn "awww query 失败，请确认 swww 是否运行。"
+        log_warn "awww query 失败，请确认 awww 服务是否运行"
     fi
 }
 
@@ -45,19 +44,16 @@ apply_logic() {
     if [[ "$wall" != "$(cat "$LAST_WALL_FILE" 2>/dev/null)" ]]; then
         log_info "发现新壁纸: $(basename "$wall")，开始生成模糊图..."
         echo "$wall" > "$LAST_WALL_FILE"
-        # 异步生成：降采样保证速度，不缩放保证画质
-        magick "$wall" -resize 50% -blur $BLUR_ARG -resize 200% "$tmp_blur" && mv "$tmp_blur" "$target_blur" && log_info "模糊图生成完毕。" &
-        pkill -x swaybg
+        magick "$wall" -resize 50% -blur $BLUR_ARG -resize 200% "$tmp_blur" && mv "$tmp_blur" "$target_blur" && log_info "模糊图生成完毕" &
     fi
 
-    if ! pgrep -x "swaybg" > /dev/null; then
-        # 检查文件是否存在，防止 EOF
+    if ! pgrep -x "awww" > /dev/null; then
         if [[ ! -f "$target_blur" ]]; then
             log_warn "模糊图尚未就绪，等待中..."
             while [[ ! -f "$target_blur" ]]; do sleep 0.1; done
         fi
-        swaybg -i "$target_blur" -m fill &>/dev/null &
-        log_info "swaybg 已成功启动。"
+        awww img "$target_blur" -n overview --transition-type fade --transition-duration 0.4
+        log_info "awww 已成功启动"
     fi
         
     case "$event" in

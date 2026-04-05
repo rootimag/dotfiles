@@ -10,7 +10,7 @@ DEST_DIR="$HOME/.config/wlogout/icons"
 # 脚本逻辑
 
 # 获取目标颜色参数
-TARGET_COLOR="#bbc3ff"
+TARGET_COLOR="#ffb690"
 
 # 检查是否提供了颜色参数
 if [ -z "$TARGET_COLOR" ]; then
