@@ -1,0 +1,200 @@
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+#workspaces button {
+    background: @surface;
+    color: @tertiary_container;
+    padding: 0px 0.56em;
+    border-radius: 0;
+}
+
+#workspaces button:hover {
+    background: @on_tertiary;
+}
+
+#workspaces button.active {
+    color:@tertiary;
+}
+
+#custom-left-arrow-right-1 {
+    background: transparent;
+    color: @surface;
+    font-size: 1.31em;
+}
+
+#custom-center-arrow-left-1 {
+    background: transparent;
+    color: @surface_container;
+    font-size: 1.31em;
+}
+
+#custom-recorder {
+    background-color: @surface_container;
+    color: @secondary;
+    padding: 0 0.3em 0 0.2em;
+    font-size: 1.2em;
+}
+
+#network {
+    background-color: @surface_container;
+    color: @secondary;
+}
+
+#custom-center-arrow-left-2,
+#custom-center-arrow-right-3 {
+    background-color: @surface_container;
+    color: @tertiary;
+    padding: 0px 0px;
+    font-size: 1.31em;
+}
+
+#idle_inhibitor {
+    background-color: @tertiary;
+    color: @on_tertiary;
+    min-width: 0.5em;
+    padding: 0px 0.4em;
+}
+
+#custom-center-arrow-left-3,
+#custom-center-arrow-right-2 {
+    background-color: @tertiary;
+    color: @surface_container;
+    font-size: 1.31em;
+}
+
+#custom-center-arrow-left-4,
+#custom-center-arrow-right-1 {
+    background-color: @surface_container;
+    color: @primary;
+    font-size: 1.31em;
+}
+
+#custom-launcher {
+    background: @primary;
+    color: @on_primary;
+}
+
+#clock {
+    background-color: @tertiary;
+    color: @on_secondary;
+    padding: 0 0.3em;
+}
+
+#custom-cava {
+    background-color: @surface_container;
+    color: @primary;
+    padding: 0px 0.35em;
+}
+
+#custom-center-arrow-right-4 {
+    background-color: transparent;
+    color: @surface_container;
+    font-size: 1.31em;
+}
+
+#custom-right-arrow-left-1 {
+    background-color: transparent;
+    color: @surface_bright;
+    font-size: 1.31em;
+}
+
+#tray {
+    background-color: @surface_bright;
+    padding: 0 0.4em;
+    font-size: 1.1em;
+}
+
+#tray menuitem {
+    padding: 0.2em; 
+    margin: 0.3em;
+}
+
+#custom-right-arrow-left-2 {
+    background-color: @surface_bright;
+    color: @surface_container_high;
+    font-size: 1.31em;
+}
+
+#pulseaudio-slider,
+#pulseaudio {
+    background-color: @surface_container_high;
+    color: @tertiary;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0;
+    min-width: 0;
+    opacity: 0;
+    background-image: none;
+    box-shadow: none;
+    background: none;
+}
+
+#pulseaudio-slider trough {
+    background-color: @surface;
+    min-height: 0.5em;
+    min-width: 4.5em;
+    border-radius: 0.3em;
+}
+
+#pulseaudio-slider highlight {
+    background-color: @tertiary;
+    min-width: 0;
+    border-radius: 0.3em;
+}
+
+#backlight {
+    background-color: @surface_container_high;
+    color: @tertiary;
+}
+
+#backlight-slider {
+    background-color: @surface_container_high;
+}
+
+#backlight-slider slider {
+    min-height: 0;
+    min-width: 0;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+
+#backlight-slider trough {
+    background-color: @background;
+    min-height: 0.5em;
+    min-width: 4.5em;
+    border-radius: 0.35em;
+    opacity: 0;
+}
+
+#backlight-slider highlight {
+    background-color: @tertiary;
+    min-width: 0;
+    border-radius: 0.3em;
+}
+
+#custom-right-arrow-left-3 {
+    background-color: @surface_container_high;
+    color: @surface;
+    font-size: 1.31em;
+}
+
+#custom-power {
+    background-color: @surface;
+    color: @error;
+    padding: 0 0.5em;
+}

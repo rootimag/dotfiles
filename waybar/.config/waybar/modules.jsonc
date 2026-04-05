@@ -1,0 +1,179 @@
+{
+    "custom/left-arrow-right-1": {
+        "format": "", "tooltip": false
+    },
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "󰜋",
+            "default": ""
+        }
+    },
+
+    "custom/left-arrow-right-2": {
+        "format": "", "tooltip": false
+    },
+
+    "custom/center-arrow-left-1": {
+        "format": "", "tooltip": false
+    },
+
+    "custom/recorder": {
+        "format": "{}",
+        "interval": 1,
+        "exec": "pgrep -x wl-screenrec > /dev/null && echo '' || echo ''",
+        "on-click": "kitty --class recorder -e ~/.config/waybar/scripts/recorder.sh",
+        "on-click-right": "pkill -INT wl-screenrec",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": "  ",
+        "tooltip-format": "󰩟 {ifname} {gwaddr}\n{bandwidthUpBytes} / {bandwidthDownBytes}",
+        "on-click-right": "kitty --class impala -e impala",
+        "interval": 3
+    },
+
+    "custom/center-arrow-left-2": {
+        "format": "", "tooltip": false
+    },
+
+    "custom/center-arrow-left-3": {
+        "format": "", "tooltip": false
+    },
+ 
+    "custom/center-arrow-left-4": {
+        "format": "", "tooltip": false
+    }, 
+    
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "start-activated": true,
+        "tooltip-format-activated": "自动熄屏已禁止",
+        "tooltip-format-deactivated": "自动熄屏已开启"
+    },
+
+    "custom/center-arrow-right-1": {
+        "format": "", "tooltip": false
+    },
+
+    "custom/center-arrow-right-2": {
+        "format": "", "tooltip": false
+    },
+
+    "custom/launcher": {
+        "format": "  ",
+        "on-click": "rofi -show drun",
+        "on-click-right": "kitty --class wallpaper -e ~/.local/bin/wallpaper",
+        "tooltip": false
+    },
+
+    "custom/center-arrow-right-3": {
+        "format": "", "tooltip": false
+    },
+
+    "custom/cava": {
+        "tooltip": false,
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/cava.sh",
+        "on-click": "playerctl play-pause "
+    },
+
+    "custom/center-arrow-right-4": {
+        "format": "", "tooltip": false
+    },
+
+    "custom/right-arrow-left-1": {
+        "format": "", "tooltip": false
+    },
+ 
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10,
+        "show-passive-items": true,
+        "tooltip": true
+    },
+
+    "custom/right-arrow-left-2": {
+        "format": "", "tooltip": false
+    },
+    
+    "group/audio": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+
+    "pulseaudio": {
+        "tooltip-format": "左键：静音\n中键：打开音频设置",
+        "format": " {icon} ",
+        "format-bluetooth": "",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "headset": "",
+            "bluetooth": "",
+            "default": ["", "", ""]
+        },
+
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol", 
+        "on-click-middle": "pavucontrol --tab=3",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+    
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
+    "group/light": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "backlight",
+            "backlight/slider"
+        ]
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": " {icon} ",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "smooth-scrolling-threshold": 1,
+        "tooltip": false
+    },
+
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
+    "custom/right-arrow-left-3": {
+        "format": "", "tooltip": false
+    },
+
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
+    }
+}

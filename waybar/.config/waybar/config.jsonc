@@ -1,0 +1,42 @@
+{
+    "include": [
+        "modules.jsonc"
+    ],
+
+    "layer": "top",
+    "position": "top",
+    "fixed-center": true,
+    "reload_style_on_change": true,
+
+    "modules-left": [
+        "niri/workspaces",
+        "custom/left-arrow-right-1"
+    ],
+
+    "modules-center": [
+        "custom/center-arrow-left-1",
+        "network",
+        "custom/recorder",
+        "custom/center-arrow-left-2",
+        "idle_inhibitor",
+        "custom/center-arrow-left-3",
+        "custom/center-arrow-left-4",
+        "custom/launcher",
+        "custom/center-arrow-right-1",
+        "custom/center-arrow-right-2",
+        "clock",
+        "custom/center-arrow-right-3",
+        "custom/cava",
+        "custom/center-arrow-right-4"
+    ],
+
+    "modules-right": [
+        "custom/right-arrow-left-1",
+        "tray",
+        "custom/right-arrow-left-2",
+        "group/audio",
+        "group/light",
+        "custom/right-arrow-left-3",
+        "custom/power"
+    ]
+}
