@@ -5,13 +5,11 @@ configuration {
     drun-display-format:        "{name}";
     font:                       "Maple Mono NF CN 13";
 
-    /* 鼠标交互 */
     hover-select:               true;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
 }
 
-/* 引入 Matugen 生成的颜色 */
 @import "~/.config/rofi/colors.rasi"
 
 window {
@@ -19,7 +17,7 @@ window {
     background-color:            @bg;
     border:                      2px solid;
     border-color:                @accent;
-    border-radius:               14px;
+    border-radius:               0px;
 }
 
 mainbox {
@@ -31,7 +29,7 @@ mainbox {
 inputbar {
     padding:                     12px;
     margin:                      0 0 15px 0;
-    border-radius:               10px;
+    border-radius:               0px;
     background-color:            @bg-selected;
     text-color:                  @fg;
     children:                    [ "prompt", "entry" ];
@@ -59,7 +57,7 @@ listview {
 
 element {
     padding:                     10px 15px;
-    border-radius:               10px;
+    border-radius:               0px;
     background-color:            transparent; 
     text-color:                  @fg;
     cursor:                      pointer;
