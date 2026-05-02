@@ -1,11 +1,10 @@
 // matugen 配色文件
 
-layout{
-    focus-ring{
+layout {
+    focus-ring {
         active-gradient from="{{colors.primary.default.hex}}cc" to="{{colors.tertiary.default.hex}}cc" angle=135
         urgent-color "{{colors.error.default.hex}}"
-
-        }
+    }
 }
 
 recent-windows {    

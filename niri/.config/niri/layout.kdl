@@ -1,7 +1,7 @@
 // 布局全局设置
 
 layout {
-    gaps 10
+    gaps 8
     center-focused-column "never"
 
     preset-column-widths {
@@ -18,10 +18,10 @@ layout {
     shadow {
         on
         softness 30
-        spread 4
+        spread 2
         offset x=-4 y=-4
         color "rgba(0, 0, 0, 0.7)"
     }
+
+    background-color "transparent"
 }
-
-

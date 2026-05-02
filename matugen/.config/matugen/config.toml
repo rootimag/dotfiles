@@ -61,11 +61,6 @@ input_path = 'templates/yazi-colors.toml'
 output_path = '~/.config/yazi/colors.toml'
 post_hook = 'echo -e "\e[32m[ OK ] yazi 颜色已更新\e[0m"'
 
-[templates.btop]
-input_path = 'templates/btop-colors.theme'
-output_path = '~/.config/btop/themes/colors.theme'
-post_hook = 'echo -e "\e[32m[ OK ] btop 颜色已更新\e[0m"'
-
 [templates.waybar]
 input_path = 'templates/waybar-colors.css'
 output_path = '~/.config/waybar/colors.css'

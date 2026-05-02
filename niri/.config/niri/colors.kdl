@@ -1,16 +1,15 @@
 // matugen 配色文件
 
-layout{
-    focus-ring{
-        active-gradient from="#cbbeffcc" to="#eeb8cbcc" angle=135
+layout {
+    focus-ring {
+        active-gradient from="#ffb2bfcc" to="#ebbe90cc" angle=135
         urgent-color "#ffb4ab"
-
-        }
+    }
 }
 
 recent-windows {    
     highlight {
-        active-color "#3a383e"
+        active-color "#413738"
         urgent-color "#ffb4ab"
     }
 }

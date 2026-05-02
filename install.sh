@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # --- 基础配置 ---
-TARGET_DEFAULT=$HOME                       # 默认 Stow 目标
-DOT_DIR=$(pwd)                             # 仓库根目录
-LOG_DIR="$DOT_DIR/.log"                     # 日志目录
-SETUP_BASE_DIR="$DOT_DIR/.setup"           # 配置指令目录
+TARGET_DEFAULT=$HOME
+DOT_DIR=$(pwd)
+LOG_DIR="$DOT_DIR/.log"
+SETUP_BASE_DIR="$DOT_DIR/.setup"
 mkdir -p "$LOG_DIR"
 
 # --- 颜色标签定义 ---

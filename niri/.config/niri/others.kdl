@@ -4,7 +4,7 @@ hotkey-overlay {
 }
 
 // 截图保存路径
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot %Y-%m-%d %H-%M-%S.png"
 
 // 取消标题栏
 prefer-no-csd
@@ -36,4 +36,12 @@ recent-windows {
         Alt+grave       { next-window     filter="app-id"; }
         Alt+Shift+grave { previous-window filter="app-id"; }
     }
+}
+
+overview {
+    zoom 0.60
+
+    workspace-shadow {
+        off
+    }    
 }
