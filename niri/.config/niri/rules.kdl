@@ -58,7 +58,9 @@ window-rule {
 }
 
 window-rule {
-    match title="Slint"
+    match app-id="ai-chat"
+    min-width 660
+    min-height 400
     open-floating true
 }
 

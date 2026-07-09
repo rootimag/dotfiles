@@ -10,7 +10,7 @@ configuration {
     me-accept-entry:            "MousePrimary";
 }
 
-@import "~/.config/rofi/colors.rasi"
+@import "~/.cache/matugen/rofi-colors.rasi"
 
 window {
     width:                       700px;

@@ -31,7 +31,7 @@
     "network": {
         "format-wifi": "  ",
         "tooltip-format": "󰩟 {ifname} {gwaddr}\n{bandwidthUpBytes} / {bandwidthDownBytes}",
-        "on-click-right": "kitty --class impala -e impala",
+        "on-click-left": "kitty --class impala -e impala",
         "interval": 3
     },
 
@@ -39,14 +39,6 @@
         "format": "", "tooltip": false
     },
 
-    "custom/center-arrow-left-3": {
-        "format": "", "tooltip": false
-    },
- 
-    "custom/center-arrow-left-4": {
-        "format": "", "tooltip": false
-    }, 
-    
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -58,6 +50,21 @@
         "tooltip-format-deactivated": "自动熄屏已开启"
     },
 
+    "custom/center-arrow-left-3": {
+        "format": "", "tooltip": false
+    },
+
+    "custom/center-arrow-left-4": {
+        "format": "", "tooltip": false
+    }, 
+
+    "custom/launcher": {
+        "format": "  ",
+        "on-click": "rofi -show drun",
+        "on-click-right": "kitty --class wallpaper -e ~/.local/bin/wallpaper",
+        "tooltip": false
+    },
+
     "custom/center-arrow-right-1": {
         "format": "", "tooltip": false
     },
@@ -66,10 +73,8 @@
         "format": "", "tooltip": false
     },
 
-    "custom/launcher": {
-        "format": "  ",
-        "on-click": "rofi -show drun",
-        "on-click-right": "kitty --class wallpaper -e ~/.local/bin/wallpaper",
+    "clock": {
+        "format": "{:%H:%M}",
         "tooltip": false
     },
 
@@ -115,7 +120,7 @@
     },
 
     "pulseaudio": {
-        "tooltip-format": "左键：静音\n中键：打开音频设置",
+        "tooltip-format": "左键：静音",
         "format": " {icon} ",
         "format-bluetooth": "",
         "format-muted": "",
@@ -127,8 +132,6 @@
         },
 
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pavucontrol", 
-        "on-click-middle": "pavucontrol --tab=3",
         "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
         "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     },

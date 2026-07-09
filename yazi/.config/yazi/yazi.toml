@@ -15,14 +15,12 @@ font-preview = [ { run = '~/.local/bin/fv -f "$@"', desc = "Open with Scripts Fo
 
 [open]
 rules = [
-	{ name = "*/", use = [ "edit", "open" ] },
 	{ mime = "text/*", use = [ "edit", "open" ] },
 	{ mime = "image/*", use = [ "imv", "open" ] },
     { mime = "{audio,video}/*", use = [ "mpv", "open" ] },
     { mime = "font/*", use = "font-preview" },
     { mime = "application/*", use = [ "edit", "open"] },
     { mime = "inode/empty", use = [ "edit", "open" ] },
-    { name = "*", use = [ "edit", "open" ] },
 ]
 
 [tasks]

@@ -1,4 +1,4 @@
-@import "colors.css";
+@import url("file:///home/rootimag/.cache/matugen/wlogout/wlogout-colors.css");
 
 * {
 	background-image: none;
@@ -13,7 +13,7 @@ window {
 
 button {
     border: 4px solid alpha(@outline, 0.6);
-    border-radius: 20px;
+    border-radius: 0px;
 	margin: 10px;
     color: @on_surface;
 	background-color: alpha(@surface_container, 0.8);
@@ -30,20 +30,20 @@ button:focus, button:active, button:hover {
 }
 
 #lock {
-    background-image: image(url("../../.config/wlogout/icons/lock.png"));
+    background-image: image(url("file:////home/rootimag/.cache/matugen/wlogout/icons/lock.png"));
 }
 #logout {
-    background-image: image(url("../../.config/wlogout/icons/logout.png"));
+    background-image: image(url("file:////home/rootimag/.cache/matugen/wlogout/icons/logout.png"));
 }
 #suspend {
-    background-image: image(url("../../.config/wlogout/icons/suspend.png"));
+    background-image: image(url("file:////home/rootimag/.cache/matugen/wlogout/icons/suspend.png"));
 }
 #hibernate {
-    background-image: image(url("../../.config/wlogout/icons/hibernate.png"));
+    background-image: image(url("file:////home/rootimag/.cache/matugen/wlogout/icons/hibernate.png"));
 }
 #shutdown {
-    background-image: image(url("../../.config/wlogout/icons/shutdown.png"));
+    background-image: image(url("file:////home/rootimag/.cache/matugen/wlogout/icons/shutdown.png"));
 }
 #reboot {
-    background-image: image(url("../../.config/wlogout/icons/reboot.png"));
+    background-image: image(url("file:////home/rootimag/.cache/matugen/wlogout/icons/reboot.png"));
 }

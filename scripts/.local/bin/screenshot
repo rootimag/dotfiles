@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-# 新截图脚本
 niri msg action screenshot &
 
-# 监听事件流
 log_output=$(niri msg event-stream | grep -m 1 --line-buffered "Screenshot captured")
 
-file_path="${log_output##*saved to }"
+raw_path="${log_output##*saved to }"
+file_path=$(echo "$raw_path" | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g' | tr -d '"' | tr -d "'" | tr -d '\r' | xargs)
 
-# 传递给 satty 编辑
-if [ -n "$file_path" ]; then
+if [[ -n "$file_path" && -f "$file_path" ]]; then
     satty --filename "$file_path"
 fi

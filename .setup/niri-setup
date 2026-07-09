@@ -1,3 +1,3 @@
-pkg: paru niri rofi yazi kitty ironbar swww swaybg satty wireplumber playerctl brightnessctl firefox hyprlock wl-clipboard clipse hyprpicker fcitx5-im fcitx5-rime matugen polkit-gnome iwd impala imv
+pkg: paru niri rofi yazi kitty waybar awww satty wireplumber playerctl brightnessctl firefox hyprlock wl-clipboard clipse fcitx5-im fcitx5-rime matugen polkit-gnome iwd impala imv mako libnotify
 stow: ~
 cmd: sudo systemctl start iwd && sudo systemctl enable iwd

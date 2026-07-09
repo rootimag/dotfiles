@@ -23,5 +23,6 @@ include "layout.kdl"        // 布局配置
 include "input.kdl"         // 输入设备配置
 include "output.kdl"        // 输出设备配置
 include "animations.kdl"    // 动画配置
-include "colors.kdl"        // 颜色配置
 include "others.kdl"        // 其他配置
+
+include "~/.cache/matugen/niri-colors.kdl"        // 颜色配置
