@@ -5,7 +5,6 @@ binds {
     Mod+Shift+Slash hotkey-overlay-title="显示快捷键列表" { spawn "~/.local/bin/showkeys"; }
 
     // 应用程序
-    Mod+A hotkey-overlay-title="AI 助手" { spawn "kitty" "--class" "ai-chat" "-e" "sh" "-c" "~/.local/bin/ai-chat"; }
     Mod+B hotkey-overlay-title="浏览器" { spawn "firefox"; }
     Mod+E hotkey-overlay-title="文件资源管理器" { spawn "kitty" "--class" "yazi" "-e" "yazi"; }
     Mod+D hotkey-overlay-title="应用启动器" { spawn "rofi" "-show" "drun"; }

@@ -16,7 +16,7 @@ return {
         })
 
         ts.install({
-            "lua", "vim", "vimdoc", "query", "cpp", "kdl", "css", "json",
+            "lua", "vim", "vimdoc", "query", "cpp", "kdl", "css", "json", "java",
             "markdown", "markdown_inline", "regex", "bash", "slint"
         })
 

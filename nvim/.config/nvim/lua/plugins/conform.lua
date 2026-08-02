@@ -18,6 +18,8 @@ return {
             c = { "clang-format" },
             cpp = { "clang-format" },
             python = { "isort", "black" },
+            markdown = { "prettierd", "prettier", stop_after_first = true },
+            json = { "prettierd", "prettier", stop_after_first = true },
             javascript = { "prettierd", "prettier", stop_after_first = true },
         },
         format_on_save = {

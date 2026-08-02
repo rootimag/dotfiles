@@ -31,7 +31,7 @@
     "network": {
         "format-wifi": "  ",
         "tooltip-format": "󰩟 {ifname} {gwaddr}\n{bandwidthUpBytes} / {bandwidthDownBytes}",
-        "on-click-left": "kitty --class impala -e impala",
+        "on-click": "kitty --class impala -e impala",
         "interval": 3
     },
 

@@ -31,7 +31,7 @@ recent-windows {
     }
 
     binds {
-        Alt+Tab         { next-window scope="workspace"; }
+        Alt+Tab         { next-window     scope="workspace"; }
         Alt+Shift+Tab   { previous-window scope="workspace"; }
         Alt+grave       { next-window     filter="app-id"; }
         Alt+Shift+grave { previous-window filter="app-id"; }
@@ -39,7 +39,7 @@ recent-windows {
 }
 
 overview {
-    zoom 0.60
+    zoom 0.6
 
     workspace-shadow {
         off

@@ -35,4 +35,4 @@ case $MODE in
 esac
 
 gum style --foreground 212 --border double --margin "1 2" --padding "1 2" "󰑊 录制已启动" "文件名: $NAME.mp4"
-sleep 1
+sleep 0.5

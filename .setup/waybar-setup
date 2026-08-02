@@ -1,2 +1,2 @@
-pkg: waybar
+pkg: waybar cava slurp wl-screenrec-git
 stow: ~

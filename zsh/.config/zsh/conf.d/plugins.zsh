@@ -11,7 +11,7 @@ bundle() {
     local name="${repo:t}"
     local dir="$ZPLUGIN_DIR/$name"
     if [ ! -d "$dir" ]; then
-        echo "📥 Downloading $repo..."
+        echo "Downloading $repo..."
         git clone --depth 1 https://github.com/$repo "$dir"
     fi
     

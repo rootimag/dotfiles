@@ -57,17 +57,11 @@ window-rule {
     open-floating true 
 }
 
-window-rule {
-    match app-id="ai-chat"
-    min-width 660
-    min-height 400
-    open-floating true
-}
-
 // 大小固定工具
 window-rule {
     match app-id="nmtui"
     match app-id="clipse"
+    match app-id="recorder"
     min-width 640
     min-height 400
     open-floating true
