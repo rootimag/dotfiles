@@ -9,25 +9,14 @@ return {
         { "HiPhish/rainbow-delimiters.nvim" },
     },
     config = function()
-        local ts = require('nvim-treesitter')
-
-        ts.setup({
-            install_dir = vim.fn.stdpath('data') .. '/site'
+        require('nvim-treesitter').setup({
+            ensure_installed = {
+                "lua", "vim", "vimdoc", "query", "cpp", "kdl", "css", "json", "java",
+                "markdown", "markdown_inline", "regex", "bash", "slint"
+            },
+            auto_install = true,
+            highlight = { enable = true },
+            indent = { enable = true },
         })
-
-        ts.install({
-            "lua", "vim", "vimdoc", "query", "cpp", "kdl", "css", "json", "java",
-            "markdown", "markdown_inline", "regex", "bash", "slint"
-        })
-
-        vim.api.nvim_create_autocmd('FileType', {
-            callback = function()
-                pcall(vim.treesitter.start)
-            end,
-        })
-
-        vim.keymap.set('n', '<CR>', function()
-            require('nvim-treesitter').select_node({ mode = 'node' })
-        end)
-    end,
+    end
 }

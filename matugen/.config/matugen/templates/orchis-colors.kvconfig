@@ -1,0 +1,654 @@
+# 全局基本参数配置
+[%General]
+author=Vince Liuice, based on KvAdapta by Tsu Jan
+comment=An uncomplicated theme inspired by the Materia GTK theme (Optimized Motion)
+
+# 允许通过菜单栏和主工具栏拖拽窗口
+x11drag=menubar_and_primary_toolbar
+# Alt 键快捷键下划线提示
+alt_mnemonic=true
+# 标签页与文档视图设置
+left_tabs=true
+attach_active_tab=true
+mirror_doc_tabs=true
+group_toolbar_buttons=false
+toolbar_item_spacing=0
+toolbar_interior_spacing=2
+spread_progressbar=true
+composite=true
+
+# 阴影与分割线参数
+# 菜单投影深度(像素,0=无阴影)
+menu_shadow_depth=3
+spread_menuitems=true
+# 提示框投影深度
+tooltip_shadow_depth=1
+# 分割条宽度(1~32)
+splitter_width=1
+
+# 滚动条与滑块尺寸
+# 滚动条粗细(1~32)
+scroll_width=4
+scroll_arrows=false
+# 滚动条滑块最小长度(16~100)
+scroll_min_extent=60
+slider_width=2
+slider_handle_width=23
+slider_handle_length=22
+tickless_slider_handle_size=22
+center_toolbar_handle=true
+check_size=16
+textless_progressbar=false
+progressbar_thickness=2
+menubar_mouse_tracking=true
+toolbutton_style=1
+double_click=false
+
+# 窗口透明度与模糊效果
+translucent_windows=true
+blurring=true
+popup_blurring=true
+
+# 控件形态与指示器设置
+vertical_spin_indicators=false
+spin_button_width=24
+fill_rubberband=false
+merge_menubar_with_toolbar=true
+small_icon_size=16
+large_icon_size=32
+button_icon_size=16
+toolbar_icon_size=16
+combo_as_lineedit=true
+
+# ------------------------------------------------------------------------------
+# 状态动画与焦点框控制（核心优化项）
+# ------------------------------------------------------------------------------
+# 开启状态切换时的平滑过渡动画
+animate_states=false
+# 禁用点击按钮时内部文本/图标的像素偏移，避免点击跳动感
+button_contents_shift=false
+combo_menu=true
+hide_combo_checkboxes=true
+# 禁用下拉框获得焦点时的突兀方框
+combo_focus_rect=false
+groupbox_top_label=true
+inline_spin_indicators=true
+joined_inactive_tabs=false
+
+# 布局间距
+layout_spacing=4
+layout_margin=4
+
+# 滚动条行为
+scrollbar_in_view=true
+transient_scrollbar=true
+transient_groove=false
+
+submenu_overlap=0
+tree_branch_line=true
+no_window_pattern=false
+
+# 强制不使用透明效果的应用白名单
+opaque=kaffeine,kmplayer,subtitlecomposer,kdenlive,vlc,smplayer,smplayer2,avidemux,avidemux2_qt4,avidemux3_qt4,avidemux3_qt5,kamoso,QtCreator,VirtualBox,trojita,dragon,digikam
+
+# 窗口保底不透明度(0~90),配合毛玻璃防止动态配色下文字看不清,改回0恢复纯透明
+reduce_window_opacity=8
+respect_DE=true
+scrollable_menu=false
+no_inactiveness=false
+# 菜单保底不透明度,同上
+reduce_menu_opacity=5
+click_behavior=0
+# 对比度特效强度(0~2)
+contrast=1.05
+dialog_button_layout=0
+intensity=1.00
+saturation=1.00
+shadowless_popup=false
+drag_from_buttons=false
+# 菜单/提示框毛玻璃模糊半径(0~10)
+menu_blur_radius=10
+tooltip_blur_radius=6
+# 提示框出现延迟(毫秒),0=立即
+tooltip_delay=0
+# 子菜单展开延迟(毫秒,-1~250),原150改70更跟手
+submenu_delay=70
+
+[GeneralColors]
+# 窗口背景
+window.color={{ colors.surface.default.hex }}
+# 输入框背景
+base.color={{ colors.surface_container_high.default.hex }}
+# 隔行变色背景
+alt.base.color={{ colors.surface_container_highest.default.hex }}
+# 按钮背景
+button.color={{ colors.surface_container_highest.default.hex }}
+# 浮雕最亮一级
+light.color={{ colors.surface_bright.default.hex }}
+# 浮雕中间一级/方框颜色
+mid.light.color={{ colors.surface_container_high.default.hex }}
+# 浮雕最暗一级
+dark.color={{ colors.surface_dim.default.hex }}
+# 网格线/工具箱标签页
+mid.color={{ colors.surface_container.default.hex }}
+# 全局强调色
+highlight.color={{ colors.secondary.default.hex | set_lightness: 30 }}
+# 未获焦点时的选中背景
+inactive.highlight.color={{ colors.secondary_container.default.hex }}
+text.color={{ colors.on_surface.default.hex }}
+window.text.color={{ colors.on_surface.default.hex }}
+button.text.color={{ colors.on_surface.default.hex }}
+# 禁用文字颜色
+disabled.text.color={{ colors.on_surface_variant.default.hex }}
+tooltip.text.color={{ colors.on_surface.default.hex }}
+# 选中文字颜色,需与highlight.color对比度足够
+highlight.text.color={{ colors.on_secondary.default.hex }}
+# 超链接,用tertiary与主强调色区分
+link.color={{ colors.tertiary.default.hex }}
+link.visited.color={{ colors.secondary.default.hex }}
+progress.indicator.text.color={{ colors.on_primary.default.hex }}
+
+# 黑科技 / Hack 行为修正开关
+[Hacks]
+transparent_ktitle_label=true
+transparent_dolphin_view=true
+transparent_pcmanfm_sidepane=true
+blur_translucent=true
+transparent_menutitle=true
+respect_darkness=true
+kcapacitybar_as_progressbar=true
+force_size_grip=true
+iconless_pushbutton=true
+iconless_menu=false
+disabled_icon_opacity=100
+lxqtmainmenu_iconsize=16
+normal_default_pushbutton=true
+single_top_toolbar=true
+
+# 悬停时图标提亮比例(0~100),0=禁用
+tint_on_mouseover=18
+
+transparent_pcmanfm_view=true
+no_selection_tint=true
+transparent_arrow_button=true
+middle_click_scroll=false
+opaque_colors=false
+kinetic_scrolling=true
+scroll_jump_workaround=true
+centered_forms=false
+noninteger_translucency=false
+blur_only_active_window=false
+style_vertical_toolbars=false
+
+# ==============================================================================
+# 按钮与控件组件样式
+# ==============================================================================
+
+# 标准面板按钮定义
+[PanelButtonCommand]
+frame=true
+frame.element=button
+# 圆角渲染尺寸(像素),数值越大圆角越大,PanelButtonTool/ToolboxTab/TreeExpander 会继承此值
+frame.top=5
+frame.bottom=5
+frame.left=5
+frame.right=5
+interior=true
+interior.element=button
+indicator.size=8
+
+# 按钮文字颜色定义（将 press 与 focus 统一设为 white，确保按下到释放平滑过渡，无二次变色）
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.press.color=white
+text.toggle.color=white
+text.shadow=0
+text.margin=4
+text.iconspacing=4
+indicator.element=arrow
+
+# 按钮扩展尺寸（设为 0 避免点击时按压边框缩放突变）
+frame.expansion=0
+
+# 工具栏小按钮
+[PanelButtonTool]
+inherits=PanelButtonCommand
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.press.color=white
+text.toggle.color=white
+text.bold=false
+indicator.element=arrow
+indicator.size=0
+frame.expansion=0
+
+# 窗口工具栏按钮
+[ToolbarButton]
+frame=true
+frame.element=tbutton
+interior.element=tbutton
+# 圆角尺寸,需单独设置(不继承 PanelButtonCommand)
+frame.top=9
+frame.bottom=9
+frame.left=9
+frame.right=9
+indicator.element=tarrow
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.press.color=white
+text.toggle.color=white
+text.bold=false
+frame.expansion=0
+
+# 停靠栏/Dock
+[Dock]
+inherits=PanelButtonCommand
+interior.element=dock
+frame.element=dock
+frame.top=1
+frame.bottom=1
+frame.left=1
+frame.right=1
+text.normal.color=#dfdfdf
+
+[DockTitle]
+inherits=PanelButtonCommand
+frame=false
+interior=false
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.bold=false
+
+# 数字微调框
+[IndicatorSpinBox]
+inherits=PanelButtonCommand
+frame=true
+interior=true
+frame.top=2
+frame.bottom=2
+frame.left=2
+frame.right=2
+indicator.element=spin
+indicator.size=8
+text.normal.color=#dfdfdf
+text.margin.top=2
+text.margin.bottom=2
+text.margin.left=2
+text.margin.right=2
+
+# 单选框与复选框
+[RadioButton]
+inherits=PanelButtonCommand
+frame=false
+interior.element=radio
+text.normal.color=#dfdfdf
+text.focus.color=white
+min_width=+0.3font
+min_height=+0.3font
+
+[CheckBox]
+inherits=PanelButtonCommand
+frame=false
+interior.element=checkbox
+text.normal.color=#dfdfdf
+text.focus.color=white
+min_width=+0.3font
+min_height=+0.3font
+
+# ------------------------------------------------------------------------------
+# 键盘焦点框配置（禁用按下/焦点时的方框）
+# ------------------------------------------------------------------------------
+[Focus]
+inherits=PanelButtonCommand
+frame=false
+interior=false
+
+# 通用框架样式
+[GenericFrame]
+inherits=PanelButtonCommand
+frame=true
+interior=false
+frame.element=common
+interior.element=common
+frame.top=1
+frame.bottom=1
+frame.left=1
+frame.right=1
+
+# 单行输入框
+[LineEdit]
+inherits=PanelButtonCommand
+frame.element=lineedit
+interior.element=lineedit
+# 圆角尺寸
+frame.top=9
+frame.bottom=9
+frame.left=9
+frame.right=9
+text.margin.top=2
+text.margin.bottom=2
+text.margin.left=2
+text.margin.right=2
+
+[ToolbarLineEdit]
+frame.element=lineedit
+interior.element=lineedit
+
+[DropDownButton]
+inherits=PanelButtonCommand
+indicator.element=arrow-down
+
+[IndicatorArrow]
+indicator.element=arrow
+indicator.size=8
+
+[ToolboxTab]
+inherits=PanelButtonCommand
+text.normal.color=#dfdfdf
+text.press.color=white
+text.focus.color=white
+
+# 标签页 (Tab) 样式
+[Tab]
+inherits=PanelButtonCommand
+interior.element=tab
+text.margin.left=8
+text.margin.right=8
+text.margin.top=2
+text.margin.bottom=2
+frame.element=tab
+indicator.element=tab
+indicator.size=22
+frame.top=9
+frame.bottom=3
+frame.left=6
+frame.right=6
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.press.color=white
+text.toggle.color=white
+frame.expansion=0
+text.bold=false
+
+[TabFrame]
+inherits=PanelButtonCommand
+frame.element=tabframe
+interior.element=tabframe
+frame.top=2
+frame.bottom=2
+frame.left=2
+frame.right=2
+
+[TreeExpander]
+inherits=PanelButtonCommand
+indicator.size=8
+indicator.element=tree
+
+[HeaderSection]
+inherits=PanelButtonCommand
+interior.element=header
+frame.element=header
+frame.top=0
+frame.bottom=1
+frame.left=1
+frame.right=1
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.press.color=white
+text.toggle.color=white
+frame.expansion=0
+
+[SizeGrip]
+indicator.element=resize-grip
+
+# 工具栏
+[Toolbar]
+inherits=PanelButtonCommand
+indicator.element=toolbar
+indicator.size=5
+text.margin=0
+interior.element=menubar
+frame.element=menubar
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.press.color=white
+text.toggle.color=white
+frame.left=0
+frame.right=0
+frame.top=0
+frame.bottom=4
+frame.expansion=0
+
+# 滑块 (Slider)
+[Slider]
+inherits=PanelButtonCommand
+frame.element=slider
+focusFrame=false
+interior.element=slider
+frame.top=3
+frame.bottom=3
+frame.left=3
+frame.right=3
+
+[SliderCursor]
+inherits=PanelButtonCommand
+frame=false
+interior.element=slidercursor
+
+# 进度条 (ProgressBar)
+[Progressbar]
+inherits=PanelButtonCommand
+frame.element=progress
+interior.element=progress
+text.margin=0
+text.normal.color=#dfdfdf
+text.focus.color=#dfdfdf
+text.press.color=#dfdfdf
+text.toggle.color=#dfdfdf
+text.bold=false
+frame.expansion=0
+
+[ProgressbarContents]
+inherits=PanelButtonCommand
+frame=true
+frame.element=progress-pattern
+interior.element=progress-pattern
+
+# 列表与树状视图项 (ItemView)
+[ItemView]
+inherits=PanelButtonCommand
+text.margin=0
+frame.element=itemview
+interior.element=itemview
+frame.top=2
+frame.bottom=2
+frame.left=2
+frame.right=2
+text.margin.top=2
+text.margin.bottom=2
+text.margin.left=4
+text.margin.right=4
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.press.color=white
+text.toggle.color=white
+min_width=+0.3font
+min_height=+0.3font
+frame.expansion=0
+
+[Splitter]
+indicator.size=48
+
+# 滚动条 (Scrollbar)
+[Scrollbar]
+inherits=PanelButtonCommand
+indicator.element=arrow
+indicator.size=12
+
+[ScrollbarSlider]
+inherits=PanelButtonCommand
+frame.element=scrollbarslider
+interior=false
+frame.left=5
+frame.right=5
+frame.top=5
+frame.bottom=5
+indicator.element=grip
+indicator.size=12
+
+[ScrollbarGroove]
+inherits=PanelButtonCommand
+interior=false
+frame=false
+
+# 弹出菜单与菜单项
+[Menu]
+inherits=PanelButtonCommand
+frame.top=10
+frame.bottom=10
+frame.left=10
+frame.right=10
+frame.element=menu
+interior.element=menu
+text.normal.color=#dfdfdf
+text.shadow=false
+frame.expansion=0
+text.bold=false
+
+[MenuItem]
+inherits=PanelButtonCommand
+frame=true
+frame.element=menuitem
+interior.element=menuitem
+indicator.element=menuitem
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.margin.top=3
+text.margin.bottom=3
+text.margin.left=6
+text.margin.right=6
+frame.top=0
+frame.bottom=0
+frame.left=6
+frame.right=6
+text.bold=false
+frame.expansion=0
+
+# 应用顶部菜单栏 (MenuBar)
+[MenuBar]
+inherits=PanelButtonCommand
+frame.element=menubar
+interior.element=menubar
+frame.bottom=0
+text.normal.color=#dfdfdf
+text.focus.color=#ffffff
+text.press.color=#ffffff
+text.toggle.color=#ffffff
+frame.expansion=0
+text.bold=false
+
+[MenuBarItem]
+inherits=PanelButtonCommand
+interior=true
+interior.element=menubaritem
+frame.element=menubaritem
+frame.top=2
+frame.bottom=2
+frame.left=2
+frame.right=2
+text.margin.left=4
+text.margin.right=4
+text.margin.top=0
+text.margin.bottom=0
+text.normal.color=#dfdfdf
+text.focus.color=#ffffff
+text.press.color=#ffffff
+text.toggle.color=#ffffff
+text.bold=false
+min_width=+0.3font
+min_height=+0.3font
+frame.expansion=0
+
+# 标题栏
+[TitleBar]
+inherits=PanelButtonCommand
+frame=false
+text.margin.top=2
+text.margin.bottom=2
+text.margin.left=2
+text.margin.right=2
+interior.element=titlebar
+indicator.size=16
+indicator.element=mdi
+text.normal.color=#787878
+text.focus.color=#dfdfdf
+text.bold=false
+text.italic=true
+frame.expansion=0
+
+# 下拉选择框 (ComboBox)
+[ComboBox]
+inherits=PanelButtonCommand
+frame.element=combo
+interior.element=combo
+# 圆角尺寸
+frame.top=9
+frame.bottom=9
+frame.left=9
+frame.right=9
+text.margin.top=2
+text.margin.bottom=2
+text.margin.left=2
+text.margin.right=2
+text.focus.color=white
+text.press.color=white
+text.toggle.color=white
+
+# 分组框与工具提示
+[GroupBox]
+inherits=GenericFrame
+frame=false
+text.shadow=0
+text.margin=0
+text.normal.color=#dfdfdf
+text.focus.color=white
+text.bold=false
+frame.expansion=0
+
+[TabBarFrame]
+inherits=GenericFrame
+frame=true
+frame.element=tabBarFrame
+interior=false
+frame.top=2
+frame.bottom=2
+frame.left=2
+frame.right=2
+
+[ToolTip]
+inherits=GenericFrame
+frame.top=6
+frame.bottom=6
+frame.left=6
+frame.right=6
+interior=true
+text.shadow=0
+text.margin=0
+interior.element=tooltip
+frame.element=tooltip
+frame.expansion=6
+
+# 状态栏
+[StatusBar]
+inherits=GenericFrame
+frame=false
+interior=false
+
+# 窗口全局定义
+[Window]
+interior=true
+interior.element=window
+frame=true
+frame.element=window
+frame.bottom=10
+frame.top=10

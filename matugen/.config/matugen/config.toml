@@ -60,3 +60,12 @@ post_hook = 'chmod +x ~/.cache/matugen/wlogout/icons/recolor.sh && (setsid bash 
 input_path = 'templates/waybar-colors.css'
 output_path = '~/.cache/matugen/waybar-colors.css'
 post_hook = 'killall -SIGUSR2 waybar & echo -e "\e[32m[ OK ] waybar 颜色已更新\e[0m"'
+
+[templates.kvantum_svg]
+input_path  = 'templates/orchis-colors.svg'
+output_path = '~/.config/Kvantum/OrchisDark/OrchisDark.svg'
+post_hook = 'echo -e "\e[32m[ OK ] kvantum 颜色已更新\e[0m"'
+
+[templates.kvantum]
+input_path  = 'templates/orchis-colors.kvconfig'
+output_path = '~/.config/Kvantum/OrchisDark/OrchisDark.kvconfig'
