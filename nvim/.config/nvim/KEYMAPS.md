@@ -2,7 +2,7 @@
 
 > `<leader>` 映射为：`Space`
 
-## 0. 系统基础按键与窗口管理 (keymaps.lua)
+## 0. ./lua/config/keymaps.lua
 
 | 快捷键                                | 模式              | 功能                                      |
 | :------------------------------------ | :---------------- | :---------------------------------------- |
@@ -17,43 +17,47 @@
 | `<Alt-Right>` / `<Alt-l>`             | Normal            | 增加窗口宽度                              |
 | `x`                                   | Normal            | 删除单个字符（不存入系统剪贴板）          |
 | `<leader>d`                           | Normal / Visual   | 删除字符/代码块（不存入系统剪贴板）       |
+| `<leader>w`                           | Normal            | 快速保存当前文件                          |
+| `<leader>q`                           | Normal            | 快速退出当前文件                          |
+| `<leader>t`                           | Normal            | 打开终端并水平拆分                        |
+| `<leader>m`                           | Normal            | 自动编译 C++ 程序                         |
 
 ## 1. ./lua/plugins/cmp.lua
 
 代码补全
 
-| 快捷键    | 功能                               |
-| :-------- | :--------------------------------- |
-| `<C-o>`   | 手动触发代码补全提示框             |
-| `<Tab>`   | 向下选择补全项 / 展开/跳转代码片段 |
-| `<S-Tab>` | 向上选择补全项 / 反向跳转代码片段  |
-| `<CR>`    | 确认并插入选中的补全项             |
-| `<C-e>`   | 关闭 / 取消补全菜单                |
-| `<C-b>`   | 向上滚动补全文档窗口               |
-| `<C-f>`   | 向下滚动补全文档窗口               |
+| 快捷键    | 模式   | 功能                               |
+| :-------- | :----- | :--------------------------------- |
+| `<C-o>`   | Insert | 手动触发代码补全提示框             |
+| `<Tab>`   | Insert | 向下选择补全项 / 展开/跳转代码片段 |
+| `<S-Tab>` | Insert | 向上选择补全项 / 反向跳转代码片段  |
+| `<CR>`    | Insert | 确认并插入选中的补全项             |
+| `<C-e>`   | Insert | 关闭 / 取消补全菜单                |
+| `<C-b>`   | Insert | 向上滚动补全文档窗口               |
+| `<C-f>`   | Insert | 向下滚动补全文档窗口               |
 
 ## 2. ./lua/plugins/bufferline.lua
 
 标签页（Buffer）管理
 
-| 快捷键       | 功能                   |
-| :----------- | :--------------------- |
-| `<Tab>`      | 切换到下一个 Buffer    |
-| `<S-Tab>`    | 切换到上一个 Buffer    |
-| `<C-Left>`   | 将当前 Buffer 向左平移 |
-| `<C-Right>`  | 将当前 Buffer 向右平移 |
-| `<leader>bd` | 关闭当前 Buffer        |
-| `<leader>bc` | 交互挑选并关闭 Buffer  |
-| `<leader>bp` | 固定 / 取消固定 Buffer |
-| `<leader>bo` | 关闭其他所有 Buffer    |
+| 快捷键       | 模式   | 功能                   |
+| :----------- | :----- | :--------------------- |
+| `<Tab>`      | Normal | 切换到下一个 Buffer    |
+| `<S-Tab>`    | Normal | 切换到上一个 Buffer    |
+| `<C-Left>`   | Normal | 将当前 Buffer 向左平移 |
+| `<C-Right>`  | Normal | 将当前 Buffer 向右平移 |
+| `<leader>bd` | Normal | 关闭当前 Buffer        |
+| `<leader>bc` | Normal | 交互挑选并关闭 Buffer  |
+| `<leader>bp` | Normal | 固定 / 取消固定 Buffer |
+| `<leader>bo` | Normal | 关闭其他所有 Buffer    |
 
 ## 3. ./lua/plugins/autopairs.lua
 
 自动括号（Autopairs）管理
 
-| 快捷键             | 功能                        |
-| :----------------- | :-------------------------- |
-| `<A-e>` (插入模式) | 触发 Fast Wrap 快速包裹模式 |
+| 快捷键             | 模式   | 功能                        |
+| :----------------- | :----- | :-------------------------- |
+| `<A-e>` (插入模式) | Normal | 触发 Fast Wrap 快速包裹模式 |
 
 ## 4. ./lua/plugins/comment.lua
 
@@ -137,9 +141,9 @@ Codeium AI 代码智能补全
 
 | 快捷键       | 模式   | 功能                                |
 | :----------- | :----- | :---------------------------------- |
-| `<leader>sn` | Normal | 打开 Noice 历史消息记录面板         |
-| `<leader>nd` | Normal | 清除 / 关闭当前屏幕上所有的通知气泡 |
-| `<leader>nl` | Normal | 查看上一条核心 Noice 消息详情       |
+| `<leader>N`  | Normal | 打开 Noice 历史消息记录面板         |
+| `<leader>Nd` | Normal | 清除 / 关闭当前屏幕上所有的通知气泡 |
+| `<leader>Nl` | Normal | 查看上一条核心 Noice 消息详情       |
 
 ## 11. ./lua/plugins/yazi.lua
 
@@ -150,24 +154,21 @@ Yazi 终端文件管理器
 | `<leader>e`  | Normal / Visual | 在当前工作目录（CWD）打开 Yazi          |
 | `<leader>cw` | Normal          | 在当前正在编辑的文件所在目录下打开 Yazi |
 
-## 12. ./lua/keymaps.lua
+## 12 ./lua/plugins/which-key.lua
 
-系统基础快捷键与窗口管理
+快捷键提示
 
-| 快捷键                    | 模式              | 功能                                  |
-| :------------------------ | :---------------- | :------------------------------------ |
-| `jk`                      | Insert            | 快速退出插入模式返回 Normal 模式      |
-| `J`                       | Visual            | 将选中的代码块向下移动一行并自动缩进  |
-| `K`                       | Visual            | 将选中的代码块向上移动一行并自动缩进  |
-| `<leader>sv`              | Normal            | 垂直新建分屏窗口                      |
-| `<leader>sh`              | Normal            | 水平新建分屏窗口                      |
-| `<C-h>`                   | Normal / Terminal | 导航跳转到左侧窗口                    |
-| `<C-j>`                   | Normal / Terminal | 导航跳转到下方窗口                    |
-| `<C-k>`                   | Normal / Terminal | 导航跳转到上方窗口                    |
-| `<C-l>`                   | Normal / Terminal | 导航跳转到右侧窗口                    |
-| `<Alt-Up>` / `<Alt-k>`    | Normal            | 增加当前窗口高度                      |
-| `<Alt-Down>` / `<Alt-j>`  | Normal            | 减少当前窗口高度                      |
-| `<Alt-Left>` / `<Alt-h>`  | Normal            | 减少当前窗口宽度                      |
-| `<Alt-Right>` / `<Alt-l>` | Normal            | 增加当前窗口宽度                      |
-| `x`                       | Normal            | 删除光标下的字符（不覆盖系统剪贴板）  |
-| `<leader>d`               | Normal / Visual   | 删除字符/选中代码（不覆盖系统剪贴板） |
+| 快捷键      | 模式   | 功能               |
+| :---------- | :----- | :----------------- |
+| `<leader>?` | Normal | 打开快捷键提示面板 |
+
+## 13. ./lua/plugins/codecompanion.lua
+
+Ai 代码对话
+
+| 快捷键       | 模式            | 功能                  |
+| :----------- | :-------------- | :-------------------- |
+| `<leader>cc` | Normal          | 打开 AI 代码对话面板  |
+| `<leader>cs` | Normal / Visual | 触发行内代码对话/重构 |
+| `<leader>gh` | Normal          | 呼出历史聊天记录      |
+| `<leader>sc` | Normal          | 手动保存聊天记录      |

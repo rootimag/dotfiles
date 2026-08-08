@@ -30,7 +30,7 @@ return {
                 show_stop_reason = true,
             },
         },
-        -- 自动管理和安装 DAP 适配器（统一使用 mason-org 仓库名）
+        -- 自动管理和安装 DAP 适配器
         {
             "jay-babu/mason-nvim-dap.nvim",
             dependencies = { "mason-org/mason.nvim" },
@@ -54,26 +54,26 @@ return {
     config = function()
         local dap = require("dap")
 
-        -- 断点图标与高亮定义（统一在此处维护，options.lua 中不再重复定义）
+        -- 断点图标与高亮定义
         vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#FF0055", bold = true })
         vim.api.nvim_set_hl(0, "DapBreakpointLine", { bg = "#3A1018" })
         vim.api.nvim_set_hl(0, "DapStopped", { fg = "#98c379", bold = true })
         vim.api.nvim_set_hl(0, "DapStoppedLine", { bg = "#1e3a2a" })
 
         vim.fn.sign_define("DapBreakpoint", {
-            text = "🔴",
+            text = "B ",
             texthl = "DapBreakpoint",
             linehl = "DapBreakpointLine",
             numhl = "DapBreakpoint",
         })
         vim.fn.sign_define("DapBreakpointCondition", {
-            text = "🟡",
+            text = "C ",
             texthl = "DapBreakpointCondition",
             linehl = "",
             numhl = "",
         })
         vim.fn.sign_define("DapLogPoint", {
-            text = "🔷",
+            text = "L ",
             texthl = "DapLogPoint",
             linehl = "",
             numhl = "",

@@ -14,7 +14,7 @@ return {
         enable_check_bracket_line = true,                -- 检查同一行后续是否有未闭合括号，避免重复插入闭合符号
         ignored_next_char = "[%w%.]",                    -- 当下一个字符是字母、数字或点号时不自动补全
 
-        -- Fast Wrap 快速包裹功能配置 (<Alt-e> 触发)
+        -- Fast Wrap 快速包裹功能配置
         fast_wrap = {
             map = "<M-e>",
             chars = { "{", "[", "(", '"', "'" },
@@ -35,6 +35,7 @@ return {
         local cmp_status, cmp = pcall(require, "cmp")
         if cmp_status then
             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            ---@diagnostic disable-next-line: undefined-field
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end
     end,

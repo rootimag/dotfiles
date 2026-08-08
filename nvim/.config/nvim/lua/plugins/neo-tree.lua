@@ -8,7 +8,7 @@ return {
     },
     cmd = "Neotree",
     keys = {
-        { "<leader>n", "<cmd>Neotree toggle<cr>", desc = "Toggle File Explorer" },
+        { "<leader>n", "<Cmd>Neotree toggle<cr>", desc = "Toggle File Explorer" },
     },
     opts = {
         close_if_last_window = false,   -- 关闭仅剩的 Neo-tree 窗口时不自动退出 Neovim

@@ -4,7 +4,7 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- 禁用原生的 Statusline（由第三方状态栏或主题处理）
+-- 禁用原生的 Statusline
 vim.opt.laststatus = 0
 
 -- 禁用不必要的语言 Provider 以加速启动

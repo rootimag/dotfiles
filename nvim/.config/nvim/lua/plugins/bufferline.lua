@@ -7,8 +7,8 @@ return {
     keys = {
         { "<Tab>",      "<Cmd>BufferLineCycleNext<CR>",   mode = "n", desc = "Next Buffer" },
         { "<S-Tab>",    "<Cmd>BufferLineCyclePrev<CR>",   mode = "n", desc = "Previous Buffer" },
-        { "<C-Left>",   "<Cmd>BufferLineMovePrev<CR>",    mode = "n", desc = "Move Buffer Left" },
-        { "<C-Right>",  "<Cmd>BufferLineMoveNext<CR>",    mode = "n", desc = "Move Buffer Right" },
+        { "<A-h>",      "<Cmd>BufferLineMovePrev<CR>",    mode = "n", desc = "Move Buffer Left" },
+        { "<A-l>",      "<Cmd>BufferLineMoveNext<CR>",    mode = "n", desc = "Move Buffer Right" },
         { "<leader>bd", "<Cmd>bdelete!<CR>",              mode = "n", desc = "Delete Buffer" },
         { "<leader>bc", "<Cmd>BufferLinePickClose<CR>",   mode = "n", desc = "Pick Close Buffer" },
         { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>",   mode = "n", desc = "Toggle Pin Buffer" },

@@ -17,7 +17,7 @@ return {
             -- vim.ui.select 的样式（例如 DAP 选择配置、LSP Code Action 等场景）
             enabled = true,
             -- 选择器的后端策略：优先使用 telescope，未安装则依次降级尝试后续后端
-            backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
+            backend = { "builtin", "nui" },
 
             -- 当回退或强制使用 builtin（内置弹窗）时的样式配置
             builtin = {

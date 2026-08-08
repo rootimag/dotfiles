@@ -91,14 +91,15 @@ return {
 
         vim.opt.pumblend = 10 -- 设置原生弹出菜单的透明度
 
-        ---@diagnostic disable-next-line: missing-fields
         cmp.setup({
             -- 窗口外观设置
             window = {
+                ---@diagnostic disable-next-line: undefined-field
                 completion = cmp.config.window.bordered({
                     border = "rounded",
                     winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                 }),
+                ---@diagnostic disable-next-line: undefined-field
                 documentation = cmp.config.window.bordered({
                     border = "rounded",
                     winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder",
@@ -152,6 +153,7 @@ return {
             }),
 
             -- 补全数据源优先级设置 (Sources & Priority)
+            ---@diagnostic disable-next-line: undefined-field
             sources = cmp.config.sources({
                 { name = "nvim_lsp", priority = 1000 },
                 { name = "luasnip",  priority = 750 },

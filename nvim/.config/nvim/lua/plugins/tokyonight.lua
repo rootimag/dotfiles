@@ -16,10 +16,21 @@ return {
         lualine_bold = true,  -- 在 lualine 状态栏中使用加粗字体
     },
     config = function(_, opts)
-        local tokyonight = require("tokyonight")
-        tokyonight.setup(opts)
+        require("tokyonight").setup(opts)
+        vim.cmd.colorscheme("tokyonight")
 
-        -- 应用 TokyoNight 主题
-        vim.cmd([[colorscheme tokyonight]])
+        vim.api.nvim_create_autocmd("ColorScheme", {
+            pattern = "*",
+            callback = function()
+                local groups = {
+                    "StatusLine", "StatusLineNC",
+                }
+                for _, group in ipairs(groups) do
+                    vim.api.nvim_set_hl(0, group, { bg = "none" })
+                end
+            end,
+        })
+
+        vim.cmd("doautocmd ColorScheme")
     end,
 }

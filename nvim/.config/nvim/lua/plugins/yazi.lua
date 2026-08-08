@@ -6,14 +6,14 @@ return {
         -- 在当前工作目录打开 Yazi
         {
             "<leader>e",
-            "<cmd>Yazi<cr>",
+            "<Cmd>Yazi<cr>",
             mode = { "n", "v" },
             desc = "Open Yazi in CWD",
         },
         -- 定位并打开当前正在编辑的文件所在的目录
         {
             "<leader>cw",
-            "<cmd>Yazi cwd<cr>",
+            "<Cmd>Yazi cwd<cr>",
             desc = "Open Yazi in Current File Directory",
         },
     },
