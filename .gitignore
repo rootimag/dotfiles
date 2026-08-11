@@ -1,3 +1,4 @@
 .log/*.log
 .log/
 zsh/.config/zsh/conf.d/secrets/
+zsh/.config/zsh/conf.d/secrets/*
